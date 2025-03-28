@@ -1,3 +1,7 @@
+[data-theme="admintheme"] {
+  color-scheme: dark;
+}
+
 [data-theme="mytheme"] {
   color-scheme: light;
   --color-base-100: #f6f7fa;
@@ -44,6 +48,13 @@ body {
   opacity: 1;
   font-family: "Pretendard", "Montserrat", -apple-system, BlinkMacSystemFont;
 }
+
+@media screen and (max-width: 767px) {
+  body {
+    padding-bottom: 80px;
+  }
+}
+
 #root {
   margin: 0;
   padding: 0;
@@ -78,4 +89,25 @@ a {
   background-color: #ffffff;
   border: 1px solid #5c7dee; /* border-pblue */
   color: #52525b; /* text-zinc-600 */
+}
+.stab-content {
+  display: none;
+}
+
+.stab-content.active-stab-content {
+  display: block;
+}
+
+.stab-buttons a {
+  border-radius: 0.25rem;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+.stab-buttons a.active-stab-btn {
+  font-weight: bold;
+  border-radius: 0.25rem;
+  background-color: #fafafa;
+  color: #5c7dee;
+  display: inline-block;
+  padding: 0.5rem 1rem;
 }

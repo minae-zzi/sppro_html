@@ -3,7 +3,7 @@
 >
   <div class="px-3">
     <p class="p-4 mb-6 mt-3 cursor-pointer hidden md:block">
-      <a href="dashboard.html">
+      <a href="../dashboard/dashboard.html">
         <img
           src="../../images/logo.png"
           class="w-full"
@@ -157,7 +157,9 @@
         <!-- 펼쳐지는 메뉴 -->
         <div id="profileMenu" class="px-4 pb-4 pt-2 opacity-0 hidden">
           <a href="#" class="text-sm block mb-2 hover:text-pblue">정보변경</a>
-          <a href="#" class="text-zinc-600 text-sm block hover:text-pblue"
+          <a
+            href="../mypage/mypage.html"
+            class="text-zinc-600 text-sm block hover:text-pblue"
             >내 견적요청</a
           >
         </div>
@@ -195,8 +197,9 @@
         정보변경
       </button>
       <a
-        href="mypage/myestimate.html"
+        href="../mypage/mypage.html"
         class="cursor-pointer bg-pblue text-white px-4 py-2 rounded-md text-sm w-full text-center"
+        onclick="window.location.href = 'mypage/myestimate.html';"
         >내견적보기</a
       >
       <button

@@ -67,68 +67,13 @@
           <div id="topbt"></div>
         </h1>
 
-        <!-- 컨텐츠 -->
-        <div id="content">
-          <!-- 견적서 상세 컴포넌트 -->
-          <div id="estimateHeader"></div>
-
-          <div class="flex gap-2 justify-end mt-4">
-            <button
-              class="btn btn-default"
-              onclick="window.location.href='/page/mypage/mypage.html'"
-            >
-              목록으로
-            </button>
-            <button
-              onclick="window.location.href='/page/mypage/estimate-rewrite.html'"
-              class="btn btn-primary"
-            >
-              재견적 요청하기
-            </button>
-          </div>
-
-          <div id="estimateRelist"></div>
-          <div id="estimateComment"></div>
-          <script>
-            $(document).ready(function () {
-              $("#estimateHeader").load(
-                "/page/mypage/estimate-detail-header.html",
-                function () {
-                  $.getScript("../../js/tabcontent.js", function () {
-                    initAnswerTabs();
-                  });
-                }
-              );
-
-              $("#estimateRelist").load(
-                "/page/mypage/estimate-re.html",
-                function () {
-                  $.getScript("../../js/reestimate.js", function () {
-                    initEstimateDetailToggle();
-                    initEstimateGsapToggle();
-                  });
-                }
-              );
-
-              $("#estimateComment").load(
-                "/page/mypage/estimate-comment.html",
-                function () {
-                  $.getScript("../../js/commentSection.js", function () {
-                    const container =
-                      document.querySelector(".comment-section");
-                    if (container) initCommentSection(container);
-                  });
-                }
-              );
-            });
-          </script>
-        </div>
+        <!-- 대시보드 컨텐츠 -->
+        <div id="content">내용 들어감</div>
       </div>
     </div>
-
     <script>
       // GNB 로드 후 필요한 스크립트들 순차 로딩
-      $("#gnb").load("../../common/gnb.html", function () {
+      $("#gnb").load("../common/gnb.html", function () {
         // animation.js
         const animScript = document.createElement("script");
         animScript.src = "../../js/animation.js";
@@ -139,7 +84,7 @@
 
         // breadcrumb.js
         const breadcrumbScript = document.createElement("script");
-        breadcrumbScript.src = "../../js/breadcrumb.js";
+        breadcrumbScript.src = "../js/breadcrumb.js";
         breadcrumbScript.onload = () => {
           setBreadcrumbByPath?.(); // 타이틀 & 브레드크럼 설정
         };
@@ -154,7 +99,7 @@
         document.body.appendChild(gnbScript);
       });
 
-      $("#topbt").load("../../common/topbt.html", function () {
+      $("#topbt").load("../common/topbt.html", function () {
         $("#topbt").hide().fadeIn(50);
       });
     </script>

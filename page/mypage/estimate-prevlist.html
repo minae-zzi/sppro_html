@@ -46,7 +46,7 @@
       <div id="gnb"></div>
       <div class="h-full w-full p-4 md:p-10">
         <!-- 타이틀 불러오기 -->
-        <h1 class="flex justify-between items-start pb-2 pt-2 md:pt-0 md:pb-6">
+        <h1 class="flex justify-between items-start pb-2 pt-2 md:pt-0 md:pb-2">
           <div>
             <span
               id="pageTitle"
@@ -69,63 +69,42 @@
 
         <!-- 컨텐츠 -->
         <div id="content">
-          <!-- 견적서 상세 컴포넌트 -->
-          <div id="estimateHeader"></div>
-
-          <div class="flex gap-2 justify-end mt-4">
-            <button
-              class="btn btn-default"
-              onclick="window.location.href='/page/mypage/mypage.html'"
+          <!-- 탭 메뉴 대신 링크 -->
+          <div class="flex border-b border-b-zinc-200 font-normal">
+            <a
+              href="estimate-rewrite.html"
+              class="relative text-zinc-600 bottom-[-1px] p-4 md:pl-12 md:pr-12 hover:text-pblue border-b border-transparent hover:border-pblue"
             >
-              목록으로
-            </button>
-            <button
-              onclick="window.location.href='/page/mypage/estimate-rewrite.html'"
-              class="btn btn-primary"
+              재견적 요청
+            </a>
+            <a
+              href="estimate-prevlist.html"
+              class="relative text-pblue bottom-[-1px] p-4 md:pl-12 md:pr-12 hover:text-pblue border-b border-pblue hover:border-pblue"
             >
-              재견적 요청하기
-            </button>
+              이전견적목록
+            </a>
           </div>
 
-          <div id="estimateRelist"></div>
-          <div id="estimateComment"></div>
-          <script>
-            $(document).ready(function () {
-              $("#estimateHeader").load(
-                "/page/mypage/estimate-detail-header.html",
-                function () {
-                  $.getScript("../../js/tabcontent.js", function () {
-                    initAnswerTabs();
-                  });
-                }
-              );
+          <div class="mt-6">
+            <div id="estimateRelist"></div>
 
-              $("#estimateRelist").load(
-                "/page/mypage/estimate-re.html",
-                function () {
-                  $.getScript("../../js/reestimate.js", function () {
-                    initEstimateDetailToggle();
-                    initEstimateGsapToggle();
-                  });
-                }
-              );
-
-              $("#estimateComment").load(
-                "/page/mypage/estimate-comment.html",
-                function () {
-                  $.getScript("../../js/commentSection.js", function () {
-                    const container =
-                      document.querySelector(".comment-section");
-                    if (container) initCommentSection(container);
-                  });
-                }
-              );
-            });
-          </script>
+            <script>
+              $(document).ready(function () {
+                $("#estimateRelist").load(
+                  "/page/mypage/estimate-re.html",
+                  function () {
+                    $.getScript("../../js/reestimate.js", function () {
+                      initEstimateDetailToggle();
+                      initEstimateGsapToggle();
+                    });
+                  }
+                );
+              });
+            </script>
+          </div>
         </div>
       </div>
     </div>
-
     <script>
       // GNB 로드 후 필요한 스크립트들 순차 로딩
       $("#gnb").load("../../common/gnb.html", function () {

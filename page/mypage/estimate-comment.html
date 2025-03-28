@@ -1,0 +1,23 @@
+<!-- 댓글 섹션 -->
+<div
+  class="comment-section flex flex-col gap-4 pt-8"
+  data-estimate-id="2025-00-0001"
+>
+  <div class="flex items-center text-lg font-semibold">
+    <p class="text-zinc-800">댓글</p>
+    <div class="comment-count text-pblue pl-1">(0)</div>
+  </div>
+
+  <!-- 입력 영역 -->
+  <div class="flex bg-formGray rounded-md p-3">
+    <input
+      type="text"
+      placeholder="댓글을 입력해주세요"
+      class="comment-input input input-ghost w-full input-sm focus:outline-none"
+    />
+    <button class="add-comment-btn btn btn-sm btn-primary">댓글달기</button>
+  </div>
+
+  <!-- 댓글 리스트 영역 -->
+  <div class="comment-list flex flex-col gap-4"></div>
+</div>

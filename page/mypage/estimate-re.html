@@ -1,0 +1,159 @@
+<!-- 견적 카드 리스트 -->
+<div class="flex flex-col gap-4 mt-4" id="estimateList">
+  <div class="text-sm text-zinc-500">
+    총 <strong>2</strong>건의 견적 내역입니다.
+  </div>
+
+  <!-- 견적 카드 1 -->
+  <div class="bg-formGray rounded-md estimate-card">
+    <div class="flex items-center pb-2 gap-2 justify-between px-6 py-4">
+      <div class="flex items-center gap-2">
+        <div class="text-xs text-pblue font-semibold">재견적</div>
+        <p class="text-zinc-400 text-sm">2025-00-0001</p>
+      </div>
+      <button
+        class="toggle-estimate text-xs text-white rounded-md px-4 py-1.5 bg-neutral-800"
+        data-target="detail-1"
+      >
+        견적서 상세보기
+      </button>
+    </div>
+
+    <div class="flex justify-start items-center gap-2 px-6">
+      <div class="bg-zinc-200 rounded-sm p-1.5 px-2 text-xs font-semibold">
+        국내
+      </div>
+      <div>2025년 상반기 국내조사</div>
+    </div>
+
+    <div
+      class="text-sm text-zinc-400 flex justify-start border-t border-zinc-200 py-3 px-6 mt-4 gap-2"
+    >
+      <p>작성일</p>
+      <p class="text-zinc-600">2025-03-20 13:45:00</p>
+    </div>
+
+    <!-- 펼침 영역 -->
+    <div
+      id="detail-1"
+      class="estimate-detail overflow-hidden"
+      style="height: 0; opacity: 0"
+    >
+      <div class="border-t border-zinc-200">
+        <div
+          class="flex px-5 py-4 justify-start items-center gap-2 border-b border-gray-200 text-sm"
+        >
+          <p class="w-[80px] font-semibold text-zinc-800 pl-1">파트너사</p>
+          <div class="text-zinc-500">dataspring, gmor</div>
+        </div>
+
+        <div
+          class="flex px-5 py-4 justify-start gap-2 border-b border-gray-200 text-sm"
+        >
+          <p class="w-[80px] font-semibold text-zinc-800 pl-1">본문</p>
+          <div class="text-zinc-500 whitespace-pre-wrap">
+            1. 샘플 수 : 1000명 2. 국가 : 국내 3. 조건 : 성/연령/지역 기준 4.
+            설문길이 : 15분
+          </div>
+        </div>
+
+        <div
+          class="flex px-5 py-4 justify-start gap-2 border-b border-gray-200 text-sm"
+        >
+          <p class="w-[80px] font-semibold text-zinc-800 pl-1">참조</p>
+          <div class="text-zinc-500">someone@email.com</div>
+        </div>
+
+        <div
+          class="flex px-5 py-4 justify-start gap-2 border-b border-gray-200 text-sm"
+        >
+          <p class="w-[80px] font-semibold text-zinc-800 pl-1">첨부파일</p>
+          <div class="text-zinc-500">
+            <a href="#" download class="hover:text-pblue-dark">brief.pdf</a>
+          </div>
+        </div>
+
+        <!-- 답변 영역 -->
+        <div>
+          <div
+            id="answerTab2"
+            class="custom-tab-container flex-col justify-center gap-2 border-b border-gray-200 text-base"
+          >
+            <div
+              class="tab-header text-sm flex flex-col md:flex-row items-center px-5 py-2 border-b border-gray-200"
+            >
+              <p class="w-[80px] font-semibold text-zinc-800 pl-1">답변보기</p>
+              <div class="stab-buttons flex gap-4">
+                <a data-tab-target="tab2-1" class="text-zinc-500">국내견적</a>
+                <a data-tab-target="tab2-2" class="text-zinc-500">Dataspring</a>
+                <a data-tab-target="tab2-3" class="text-zinc-500">Gmor</a>
+              </div>
+            </div>
+
+            <!-- 답변내용들 -->
+            <div class="stab-content" data-tab-id="tab2-1">
+              <div
+                class="border-b border-gray-200 flex gap-4 items-center px-4 py-4"
+              >
+                <p class="rounded-md bg-pblue p-2 text-white text-xs">
+                  답변완료
+                </p>
+                <p class="font-semibold text-lg">제목이 들어갑니다.</p>
+              </div>
+              <div class="px-5 py-4">
+                안녕하세요, 최성욱 프로님온라인패널조사부 박경미입니다.요청하신
+                내용 확인하여 견적 전달드립니다.첨부 파일로 확인 부탁드리며,
+                추가 확인 필요한 부분 있으시면 말씀 주세요!감사합니다.박경미
+                드림
+              </div>
+            </div>
+
+            <div class="stab-content" data-tab-id="tab2-2">
+              <div
+                class="border-b border-gray-200 flex gap-4 items-center px-4 py-4"
+              >
+                <p class="rounded-md bg-red-400 p-2 text-white text-xs">
+                  견적확인중
+                </p>
+                <p class="font-semibold text-lg">제목이 들어갑니다.</p>
+              </div>
+              <div class="px-5 py-4">
+                안녕하세요, 최성욱 프로님온라인패널조사부 박경미입니다.요청하신
+                내용 확인하여 견적 전달드립니다.첨부 파일로 확인 부탁드리며,
+                추가 확인 필요한 부분 있으시면 말씀 주세요!감사합니다.박경미
+                드림
+              </div>
+            </div>
+
+            <div class="stab-content" data-tab-id="tab2-3">
+              <div
+                class="border-b border-gray-200 flex gap-4 items-center px-4 py-4"
+              >
+                <p class="rounded-md bg-zinc-400 p-2 text-white text-xs">
+                  답변대기
+                </p>
+                <p class="font-semibold text-lg">제목이 들어갑니다.</p>
+              </div>
+              <div class="px-5 py-4">
+                안녕하세요, 최성욱 프로님온라인패널조사부 박경미입니다.요청하신
+                내용 확인하여 견적 전달드립니다.첨부 파일로 확인 부탁드리며,
+                추가 확인 필요한 부분 있으시면 말씀 주세요!감사합니다.박경미
+                드림
+              </div>
+            </div>
+          </div>
+
+          <!-- 첨부파일 -->
+          <div class="flex px-5 py-4 justify-start gap-2 border-gray-200">
+            <p class="w-[80px] font-semibold text-zinc-800 pl-1">첨부파일</p>
+            <div class="text-zinc-500">
+              <a href="files/spec.pdf" download class="hover:text-pblue-dark"
+                >spec.pdf</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
