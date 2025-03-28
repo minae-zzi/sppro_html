@@ -1,0 +1,81 @@
+[data-theme="mytheme"] {
+  color-scheme: light;
+  --color-base-100: #f6f7fa;
+  --color-base-200: oklch(93.299% 0.01 261.788);
+  --color-base-300: oklch(89.925% 0.016 262.749);
+  --color-base-content: oklch(32.437% 0.022 264.182);
+  --color-primary: #5c7dee;
+  --color-primary-content: oklch(98% 0.003 247.858);
+  --color-secondary: oklch(69.651% 0.059 248.687);
+  --color-secondary-content: oklch(13.93% 0.011 248.687);
+  --color-accent: oklch(77.464% 0.062 217.469);
+  --color-accent-content: oklch(15.492% 0.012 217.469);
+  --color-neutral: oklch(45.229% 0.035 264.131);
+  --color-neutral-content: oklch(89.925% 0.016 262.749);
+  --color-info: #f2585f;
+  --color-info-content: oklch(13.841% 0.012 332.664);
+  --color-success: oklch(76.827% 0.074 131.063);
+  --color-success-content: oklch(15.365% 0.014 131.063);
+  --color-warning: oklch(85.486% 0.089 84.093);
+  --color-warning-content: oklch(17.097% 0.017 84.093);
+  --color-error: #f2585f;
+  --color-error-content: oklch(12.122% 0.024 15.341);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+  --font-display: "Pretendard", "sans-serif";
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../font/PretendardVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+body {
+  background-color: #f6f7fa;
+  word-break: keep-all;
+  opacity: 1;
+  font-family: "Pretendard", "Montserrat", -apple-system, BlinkMacSystemFont;
+}
+#root {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", "Montserrat", -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+.tab-link.after\:bg-pblue::after {
+  background-color: #5c7dee;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #eeeff4; /* bg-formGray */
+  border-radius: 0.375rem; /* rounded-md */
+  padding: 1.5rem; /* p-6 */
+  width: 100%;
+  max-width: 100%;
+  transition: all 0.1s ease-in-out;
+  margin-bottom: 1rem; /* mb-4 */
+  cursor: pointer;
+  color: #71717a; /* text-zinc-500 */
+}
+
+.form-section:focus-within {
+  background-color: #ffffff;
+  border: 1px solid #5c7dee; /* border-pblue */
+  color: #52525b; /* text-zinc-600 */
+}

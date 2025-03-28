@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="mytheme">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 기본 메타 태그 -->
+    <meta name="description" content="Ms SearchPro" />
+    <meta name="keywords" content="Ms SearchPro" />
+    <meta name="author" content="Ms SearchPro" />
+
+    <!-- 파비콘 -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../images/favicon.ico"
+    />
+
+    <title>Ms SearchPro</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <style type="text/tailwindcss">
+      @theme {
+        --font-display: "Pretendard", "sans-serif";
+        --color-bgGray: #f6f7fa;
+        --color-formGray: #eeeff4;
+        --color-pblue: #5c7dee;
+        --color-contentGray: #eeeff4;
+        --color-pgreen: #70c3a7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap" class="flex flex-row">
+      <!-- GNB include -->
+      <div id="gnb"></div>
+      <div class="h-full w-full p-4 md:p-10">
+        <!-- 타이틀 불러오기 -->
+        <h1 class="flex justify-between items-start pb-2 pt-2 md:pt-0 md:pb-6">
+          <div>
+            <span
+              id="pageTitle"
+              class="block text-2xl md:text-4xl font-bold opacity-0 transition-opacity duration-100 md:min-h-[48px]"
+            >
+              <!-- JS로 동적 텍스트 삽입 -->
+            </span>
+
+            <div class="breadcrumbs text-sm min-h-[24px]">
+              <ul class="font-normal text-zinc-500">
+                <li id="breadcrumbDepth1">&nbsp;</li>
+                <li id="breadcrumbDepth2">&nbsp;</li>
+                <li id="breadcrumbDepth3">&nbsp;</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="topbt"></div>
+        </h1>
+
+        <!-- 컨텐츠 -->
+        <div id="content">
+          <div class="flex flex-col gap-4 max-w-5xl mx-auto">
+            <!-- 검색 + 버튼 -->
+            <div
+              class="flex flex-col md:flex-row justify-between items-center gap-2"
+            >
+              <div
+                class="flex items-center gap-2 bg-white px-3 py-2 h-[40px] rounded-md w-full focus-within:border-pblue"
+              >
+                <img src="../../images/icon_search.png" class="w-4" />
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="견적서 제목 검색"
+                  class="border-none focus:outline-none w-full text-sm"
+                />
+              </div>
+              <a
+                href="../estimate/estimate-advanced.html"
+                class="btn btn-neutral w-full md:w-auto"
+                >+ 새로운 견적 요청</a
+              >
+            </div>
+
+            <!-- 결과 텍스트 -->
+            <div id="resultText" class="text-sm text-zinc-500 py-2">
+              전체 견적서 목록입니다. 총 <strong id="totalCount">0</strong>건
+            </div>
+
+            <!-- 견적 카드 목록 -->
+            <div id="estimateList" class="grid lg:grid-cols-2 gap-4"></div>
+
+            <!-- 하단 버튼 -->
+            <a
+              href="../estimate/estimate-advanced.html"
+              class="btn btn-soft btn-neutral"
+              >+ 새로운 견적 요청</a
+            >
+          </div>
+
+          <script>
+            const dummyEstimates = [
+              {
+                estimateId: "2025-00-0001",
+                title: "국내 패널 조사 견적 요청",
+                country: ["국내"],
+                createdAt: "2025-03-27T13:30:00",
+                commentCount: 2,
+                reEstimateCount: 1,
+                answerStatus: "답변완료",
+              },
+              {
+                estimateId: "2025-00-0002",
+                title: "해외 CAWI 설문 견적 요청",
+                country: ["해외"],
+                createdAt: "2025-03-26T10:00:00",
+                commentCount: 0,
+                reEstimateCount: 0,
+                answerStatus: "견적확인중",
+              },
+              {
+                estimateId: "2025-00-0003",
+                title: "해외 + 국내 병행 조사",
+                country: ["국내", "해외"],
+                createdAt: "2025-03-24T09:10:00",
+                commentCount: 1,
+                reEstimateCount: 2,
+                answerStatus: "답변대기",
+              },
+            ];
+
+            const getBadgeColor = (status) => {
+              switch (status) {
+                case "답변완료":
+                  return "bg-pblue";
+                case "견적확인중":
+                  return "bg-red-500";
+                default:
+                  return "bg-gray-400";
+              }
+            };
+
+            const renderList = (term = "") => {
+              const listContainer = $("#estimateList");
+              const filtered = dummyEstimates.filter((item) =>
+                item.title.includes(term)
+              );
+
+              $("#totalCount").text(dummyEstimates.length);
+              if (term) {
+                $("#resultText").html(
+                  `<strong class="text-black">${term}</strong>에 대한 검색 결과 <strong>${filtered.length}</strong>건`
+                );
+              } else {
+                $("#resultText").html(
+                  `전체 견적서 목록입니다. 총 <strong>${dummyEstimates.length}</strong>건`
+                );
+              }
+
+              listContainer.html("");
+
+              if (filtered.length === 0) {
+                listContainer.html(
+                  '<p class="text-zinc-400 p-6">검색 결과가 없습니다.</p>'
+                );
+                return;
+              }
+
+              filtered.forEach((item) => {
+                const badge = getBadgeColor(item.answerStatus);
+                const reEstimateTag = item.reEstimateCount
+                  ? `<div class="text-zinc-400 text-sm flex items-center gap-1">
+                      재견적
+                      <p class="w-5 h-5 rounded-full text-white bg-pblue flex justify-center items-center text-xs font-semibold">
+                        ${item.reEstimateCount}
+                      </p>
+                    </div>`
+                  : "";
+
+                const commentTag = `
+                  <div class="text-zinc-400 text-sm flex items-center gap-1">
+                    댓글
+                    <p class="w-5 h-5 rounded-full text-white bg-zinc-900 flex justify-center items-center text-xs font-semibold">
+                      ${item.commentCount}
+                    </p>
+                  </div>`;
+
+                const html = `
+                  <div class="bg-formGray p-6 rounded-md cursor-pointer border border-transparent hover:border-pblue transition"
+                       onclick="location.href='estimate-detail.html?id=${
+                         item.estimateId
+                       }'">
+                    <div class="flex items-center pb-2 gap-2 justify-between">
+                      <p class="text-zinc-400 text-sm">${item.estimateId}</p>
+                      <div class="flex items-center gap-2">${reEstimateTag}${commentTag}</div>
+                    </div>
+                    <div class="flex items-center gap-2 pb-2">
+                      ${item.country
+                        .map(
+                          (c) =>
+                            `<div class="bg-zinc-200 rounded-sm p-1.5 px-2 text-xs font-semibold">${c}</div>`
+                        )
+                        .join("")}
+                      <div>${item.title}</div>
+                    </div>
+                    <div class="text-sm text-white p-2 rounded-md text-center ${badge}">
+                      ${item.answerStatus}
+                    </div>
+                    <p class="text-sm text-zinc-400 pt-2 text-right">작성일 : ${new Date(
+                      item.createdAt
+                    ).toLocaleString()}</p>
+                  </div>
+                `;
+                listContainer.append(html);
+              });
+            };
+
+            $(document).ready(() => {
+              renderList();
+
+              $("#searchInput").on("input", function () {
+                const term = $(this).val();
+                renderList(term);
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+    <script>
+      // GNB 로드 후 필요한 스크립트들 순차 로딩
+      $("#gnb").load("../../common/gnb.html", function () {
+        // animation.js
+        const animScript = document.createElement("script");
+        animScript.src = "../../js/animation.js";
+        animScript.onload = () => {
+          initAnimations?.(); // 애니메이션 초기화
+        };
+        document.body.appendChild(animScript);
+
+        // breadcrumb.js
+        const breadcrumbScript = document.createElement("script");
+        breadcrumbScript.src = "../../js/breadcrumb.js";
+        breadcrumbScript.onload = () => {
+          setBreadcrumbByPath?.(); // 타이틀 & 브레드크럼 설정
+        };
+        document.body.appendChild(breadcrumbScript);
+
+        // active-gnb.js
+        const gnbScript = document.createElement("script");
+        gnbScript.src = "../../js/active-gnb.js";
+        gnbScript.onload = () => {
+          setActiveGNB?.(); // GNB 활성화 표시
+        };
+        document.body.appendChild(gnbScript);
+      });
+
+      $("#topbt").load("../../common/topbt.html", function () {
+        $("#topbt").hide().fadeIn(50);
+      });
+    </script>
+  </body>
+</html>
