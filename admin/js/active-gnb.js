@@ -1,19 +1,19 @@
 function setActiveGNB() {
   const pathSegments = location.pathname.split("/");
-  const currentFolder = pathSegments.includes("page") ? pathSegments[2] : "";
 
+  // "page" 다음 위치를 currentFolder로 잡기
+  const pageIndex = pathSegments.indexOf("page");
+  const currentFolder = pageIndex !== -1 ? pathSegments[pageIndex + 1] : "";
+
+  const currentPath = window.location.pathname;
   const links = document.querySelectorAll(".gnb-link");
 
   links.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href.includes(`/${currentFolder}/`)) {
-      link.classList.remove("bg-white");
-      link.classList.add("bg-neutral-800", "text-white");
+    const path = link.getAttribute("data-path");
+    if (!path) return;
 
-      const img = link.querySelector("img");
-      if (img) {
-        img.classList.add("brightness-0", "invert");
-      }
+    if (currentPath.includes(path)) {
+      link.classList.add("bg-pblue", "text-white");
     }
   });
 }

@@ -5,23 +5,17 @@ function setBreadcrumbByPath() {
   let depth2 = "";
 
   // 1차 분류
-  if (path.includes("/admin/site")) depth1 = "사이트 관리";
-  else if (path.includes("/admin/mspanel")) depth1 = "MS 정보검색";
-  else if (path.includes("/estimate")) depth1 = "견적요청";
-  else if (path.includes("/panelprofile")) depth1 = "패널프로파일조사";
-  else if (path.includes("/dataarea")) depth1 = "MS 패널자료실";
-  else if (path.includes("/knowhow")) depth1 = "KNOW-HOW";
-  else if (path.includes("/mypage")) depth1 = "내견적보기";
-
+  if (path.includes("/admin/page/site")) depth1 = "사이트 관리";
+  else if (path.includes("/admin/page/panel")) depth1 = "게시판 관리";
+  else if (path.includes("/admin/page/global")) depth1 = "해외파트너사 관리";
   // 2차 페이지 이름 매핑
-  if (path.includes("estimate.html")) depth2 = "Draft견적";
-  else if (path.includes("estimate-advanced.html")) depth2 = "세부견적의뢰";
-  else if (path.includes("estimate-rewrite.html")) depth2 = "재견적 요청";
-  else if (path.includes("estimate-prevlist.html")) depth2 = "이전견적목록";
-  // ✅ 사이트관리 페이지들 추가
-  else if (path.includes("site-member.html")) depth2 = "회원관리";
-  else if (path.includes("site-status.html")) depth2 = "이용 현황";
-  else if (path.includes("site-code.html")) depth2 = "코드관리";
+  if (path.includes("estimate.html")) depth2 = "견적요청";
+  else if (path.includes("panelprofile.html")) depth2 = "패널프로파일 조사";
+  else if (path.includes("dataarea.html")) depth2 = "MS 패널 자료실";
+  else if (path.includes("knowhow.html")) depth2 = "KNOW-HOW";
+  else if (path.includes("sitelog.html")) depth2 = "이용현황";
+  else if (path.includes("codesetting.html")) depth2 = "코드관리";
+  else if (path.includes("joinmem.html")) depth2 = "회원관리";
 
   // DOM 업데이트
   const pageTitle = document.getElementById("pageTitle");

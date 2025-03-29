@@ -1,5 +1,25 @@
 [data-theme="admintheme"] {
   color-scheme: dark;
+  --color-base-100: #f6f7fa;
+  --color-base-200: oklch(93.299% 0.01 261.788);
+  --color-base-300: oklch(89.925% 0.016 262.749);
+  --color-base-content: oklch(32.437% 0.022 264.182);
+  --color-primary: #5c7dee;
+  --color-primary-content: oklch(98% 0.003 247.858);
+  --color-secondary: #94a3b8;
+  --color-secondary-content: #7d8ca2;
+  --color-accent: oklch(77.464% 0.062 217.469);
+  --color-accent-content: oklch(15.492% 0.012 217.469);
+  --color-neutral: oklch(45.229% 0.035 264.131);
+  --color-neutral-content: oklch(89.925% 0.016 262.749);
+  --color-info: #f2585f;
+  --color-info-content: oklch(13.841% 0.012 332.664);
+  --color-success: oklch(76.827% 0.074 131.063);
+  --color-success-content: oklch(15.365% 0.014 131.063);
+  --color-warning: oklch(85.486% 0.089 84.093);
+  --color-warning-content: oklch(17.097% 0.017 84.093);
+  --color-error: #f2585f;
+  --color-error-content: oklch(12.122% 0.024 15.341);
 }
 
 [data-theme="mytheme"] {
@@ -110,4 +130,28 @@ a {
   color: #5c7dee;
   display: inline-block;
   padding: 0.5rem 1rem;
+}
+
+.table-basic {
+  width: 100%;
+  border-top: 1px solid #cbd5e1;
+  font-size: 14px;
+  table-layout: fixed;
+}
+.table-basic th {
+  background: #eeeff4;
+  border-bottom: 1px solid #cdd5e1;
+  padding: 12px 0px;
+  font-size: 14px;
+  font-weight: 400;
+  word-break: break-word;
+  white-space: normal;
+}
+.table-basic td {
+  text-align: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+  color: #777;
+  word-break: break-word;
+  white-space: normal;
 }
