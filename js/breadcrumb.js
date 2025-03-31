@@ -10,12 +10,14 @@ function setBreadcrumbByPath() {
   else if (path.includes("/panelprofile")) depth1 = "패널프로파일조사";
   else if (path.includes("/dataarea")) depth1 = "MS 패널자료실";
   else if (path.includes("/knowhow")) depth1 = "KNOW-HOW";
-  else if (path.includes("/mypage")) depth1 = "내견적보기";
+  else if (path.includes("/mypage")) depth1 = "마이페이지";
 
   if (path.includes("estimate.html")) depth2 = "Draft견적";
   else if (path.includes("estimate-advanced.html")) depth2 = "세부견적의뢰";
   else if (path.includes("estimate-rewrite.html")) depth2 = "재견적 요청";
   else if (path.includes("estimate-prevlist.html")) depth2 = "이전견적목록";
+  else if (path.includes("mypage.html")) depth2 = "내견적보기";
+  else if (path.includes("estimate-detail.html")) depth2 = "내견적보기";
 
   const pageTitle = document.getElementById("pageTitle");
   const d1 = document.getElementById("breadcrumbDepth1");
