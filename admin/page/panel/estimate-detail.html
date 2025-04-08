@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="admintheme">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 기본 메타 태그 -->
+    <meta name="description" content="Ms SearchPro" />
+    <meta name="keywords" content="Ms SearchPro" />
+    <meta name="author" content="Ms SearchPro" />
+
+    <!-- 파비콘 -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../../images/favicon.ico"
+    />
+
+    <title>Ms SearchPro</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <style type="text/tailwindcss">
+      @theme {
+        --font-display: "Pretendard", "sans-serif";
+        --color-bgGray: #f6f7fa;
+        --color-formGray: #eeeff4;
+        --color-pblue: #5c7dee;
+        --color-contentGray: #eeeff4;
+        --color-pgreen: #70c3a7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap" class="flex flex-row">
+      <!-- GNB include -->
+      <div id="gnb"></div>
+      <div class="h-full w-full p-4 md:p-10">
+        <!-- 타이틀 불러오기 -->
+        <h1 class="flex justify-between items-start pb-2 pt-2 md:pt-0 md:pb-6">
+          <div>
+            <span
+              id="pageTitle"
+              class="block text-2xl md:text-4xl font-bold opacity-0 transition-opacity duration-100 md:min-h-[48px]"
+            >
+              <!-- JS로 동적 텍스트 삽입 -->
+            </span>
+
+            <div class="breadcrumbs text-sm min-h-[24px]">
+              <ul class="font-normal text-zinc-500">
+                <li id="breadcrumbDepth1">&nbsp;</li>
+                <li id="breadcrumbDepth2">&nbsp;</li>
+                <li id="breadcrumbDepth3">&nbsp;</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="topbt"></div>
+        </h1>
+
+        <!-- 컨텐츠 -->
+        <div id="content">
+          <div class="overflow-x-auto">
+            <table class="table-secondary text-zinc-500">
+              <colgroup>
+                <col style="width: 10%" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td colspan="2" class="font-bold text-lg text-black">
+                    <span class="btn btn-secondary btn-sm text-xs"
+                      >답변대기</span
+                    >
+                    Smart-Panel 패널 조사 문의
+                  </td>
+                </tr>
+                <tr>
+                  <th>국가</th>
+                  <td>한국</td>
+                </tr>
+
+                <tr>
+                  <th>작성자</th>
+                  <td>김희연</td>
+                </tr>
+                <tr>
+                  <th>최초등록일</th>
+                  <td>2025-01-25 오후03:25:20</td>
+                </tr>
+                <tr>
+                  <th>처리자</th>
+                  <td>박경미</td>
+                </tr>
+                <tr>
+                  <th>최근 처리일</th>
+                  <td>2025-01-25 오후03:25:20</td>
+                </tr>
+                <tr>
+                  <th>조회수</th>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <th>내용</th>
+                  <td class="min-h-[200px] whitespace-pre-line">
+                    Smart-Panel 패널 조사에 대해 문의드립니다. 자세한 상담을
+                    원합니다.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-6">
+            <div class="flex justify-between">
+              <div>
+                <button class="btn btn-primary" onclick="toggleReplyEstimate()">답변하기</button>
+                <button class="btn btn-error">수정하기</button>
+              </div>
+              <div>
+                <button class="btn btn-secondary" onclick="window.location.href='estimate-global.html'">해외견적문의하기</button>
+              </div>
+            </div>
+
+            <div id="toggleReplyEstimate" class="hidden mt-4"></div>
+            <script>
+              $(function() {
+                // 답변하기 컨텐츠 로드
+                $('#toggleReplyEstimate').load('../../page/panel/estimate-reply.html');
+
+                // 답변하기 토글 
+                window.toggleReplyEstimate = function() {
+                  const $form = $('#toggleReplyEstimate');
+                  if($form.hasClass('hidden')) {
+                    $form.removeClass('hidden');
+                    // fileInput.js가 아직 로드되지 않은 경우에만 로드
+                    if(!window.fileInputInitialized) {
+                      $.getScript('../../js/fileInput.js', function() {
+                        if(typeof renderFileInput === 'function') {
+                          renderFileInput("fileInputContainer");
+                        }
+                      });
+                    }
+                  } else {
+                    $form.addClass('hidden'); 
+                  }
+                };
+              });
+            </script>
+          </div>
+        </div>
+    </div>
+    <script>
+      // GNB 로드 후 필요한 스크립트들 순차 로딩
+      $("#gnb").load("../../common/gnb.html", function () {
+        // breadcrumb.js
+        const breadcrumbScript = document.createElement("script");
+        breadcrumbScript.src = "../../js/breadcrumb.js";
+        breadcrumbScript.onload = () => {
+          setBreadcrumbByPath?.(); // 타이틀 & 브레드크럼 설정
+        };
+        document.body.appendChild(breadcrumbScript);
+
+        // active-gnb.js
+        const gnbScript = document.createElement("script");
+        gnbScript.src = "../../js/active-gnb.js";
+        gnbScript.onload = () => {
+          setActiveGNB?.(); // GNB 활성화 표시
+        };
+        document.body.appendChild(gnbScript);
+      });
+
+      $("#topbt").load("../../common/topbt.html", function () {
+        $("#topbt").hide().fadeIn(50);
+      });
+    </script>
+  </body>
+</html>

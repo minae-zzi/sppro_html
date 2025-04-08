@@ -74,62 +74,93 @@
           >
             <label class="flex flex-col gap-2 w-12">검색</label>
             <select class="select select-bordered w-full max-w-xs">
-              <option value="1">내선번호+부서</option>
+              <option value="1">답변상태</option>
+              <option value="2">답변대기</option>
+              <option value="3">답변완료</option>
+            </select>
+            <select class="select select-bordered w-full max-w-xs">
+              <option value="1">제목+내용</option>
+              <option value="2">작성자</option>
+            </select>
+            <select class="select select-bordered w-full max-w-xs">
+              <option value="1">국가</option>
+              <option value="2">한국</option>
+              <option value="3">한국/해외</option>
+              <option value="4">해외</option>
             </select>
             <input type="text" class="input input-bordered w-full max-w-full" />
-            <button class="btn btn-neutral">검색</button>
+            <button class="btn btn-neutral">조회</button>
           </form>
 
-          <div class="flex justify-end py-6">
-            <button class="btn btn-primary text-white">등록하기</button>
-          </div>
-
-          <div class="overflow-x-auto">
+          <div class="overflow-x-auto mt-6">
             <table class="table-basic">
+              <colgroup>
+                <col style="width: 2%" />
+                <col style="width: 5%" />
+                <col style="width: auto" />
+                <col style="width: 10%" />
+                <col style="width: 10%" />
+                <col style="width: 10%" />
+                <col style="width: 10%" />
+                <col style="width: 10%" />
+              </colgroup>
               <thead>
                 <tr>
-                  <th>순번</th>
-                  <th>구분</th>
-                  <th>이름</th>
-                  <th>이메일</th>
-                  <th>사번</th>
-                  <th>내선</th>
-                  <th>부서</th>
-                  <th>직급</th>
-                  <th>최종접속</th>
-                  <th>비번수정일자</th>
-                  <th>초기화</th>
-                  <th>사용</th>
-                  <th>참조</th>
-                  <th>수정</th>
+                  <th>번호</th>
+                  <th>국가</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>최초등록일</th>
+                  <th>처리자</th>
+                  <th>최근 처리일</th>
+                  <th>조회</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>1</td>
-                  <td>임직원</td>
-                  <td>조혜연</td>
-                  <td>babydanji@gmail.com</td>
-                  <td>5234234</td>
-                  <td>02</td>
-                  <td>온라인패널조사부</td>
-                  <td>사원</td>
+                  <td>한국</td>
+                  <td class="flex gap-2 justify-start items-center">
+                    <span class="btn btn-secondary btn-sm text-xs"
+                      >답변대기</span
+                    >
+                    <a
+                      href="estimate-detail.html"
+                      class="hover:text-neutral-800"
+                      >Smart-Panel 패널 조사 문의</a
+                    >
+                  </td>
+                  <td>김희연</td>
                   <td>2025-01-25 오후03:25:20</td>
+                  <td>박경미</td>
                   <td>2025-01-25 오후03:25:20</td>
-                  <td>
-                    <button class="btn btn-info btn-sm text-white">
-                      초기화
-                    </button>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>한국/해외</td>
+                  <td class="flex gap-2 justify-start items-center">
+                    <span class="btn btn-primary btn-sm text-xs">답변완료</span>
+                    [임시번호] Smart-Panel 패널 조사 문의
                   </td>
-                  <td>
-                    <input type="checkbox" class="checkbox checkbox-sm" />
+                  <td>김희연</td>
+                  <td>2025-01-25 오후03:25:20</td>
+                  <td>박경미</td>
+                  <td>2025-01-25 오후03:25:20</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>한국</td>
+                  <td class="flex gap-2 justify-start items-center">
+                    <span class="btn btn-error btn-sm text-xs">답변대기</span>
+                    [임시번호] Smart-Panel 패널 조사 문의
                   </td>
-                  <td>
-                    <input type="checkbox" class="checkbox checkbox-sm" />
-                  </td>
-                  <td>
-                    <button class="btn btn-neutral btn-sm text-xs">수정</button>
-                  </td>
+                  <td>김희연</td>
+                  <td>2025-01-25 오후03:25:20</td>
+                  <td>박경미</td>
+                  <td>2025-01-25 오후03:25:20</td>
+                  <td>10</td>
                 </tr>
               </tbody>
             </table>

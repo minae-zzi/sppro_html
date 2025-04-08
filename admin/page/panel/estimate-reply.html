@@ -1,0 +1,138 @@
+<div>
+  <table class="table-secondary">
+    <colgroup>
+      <col style="width: 10%" />
+      <col style="width: auto" />
+    </colgroup>
+    <tbody>
+      <tr>
+        <th>작성자</th>
+        <td>강연지</td>
+      </tr>
+      <tr>
+        <th>답변내용</th>
+        <td>
+          <textarea
+            placeholder="답변내용을 입력해주세요"
+            class="w-full h-40 bg-transparent border-none focus:outline-none"
+          ></textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>첨부파일</th>
+        <td class="flex gap-2 items-center">
+          <div id="fileInputContainer">
+            <div class="file-input-group flex gap-2 items-center">
+              <input
+                type="file"
+                class="file-input file-input-bordered w-full max-w-xs"
+              />
+              <button
+                class="btn btn-neutral btn-sm text-xs add-file-btn"
+              >
+                추가
+              </button>
+              <button
+                class="btn btn-error btn-sm text-xs remove-file-btn"
+              >
+                삭제
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th>해외견적</th>
+        <td>
+          <div class="flex gap-4">
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                class="checkbox checkbox-sm checkbox-primary"
+              />
+              dataspring
+            </label>
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                class="checkbox checkbox-sm checkbox-primary"
+              />
+              GMOR
+            </label>
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                class="checkbox checkbox-sm checkbox-primary"
+              />
+              다이나타
+            </label>
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                class="checkbox checkbox-sm checkbox-primary"
+              />
+              마켓링크
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                class="checkbox checkbox-sm checkbox-primary"
+              />
+              툴루나
+            </label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th>DataSpring</th>
+        <td class="flex flex-col gap-4">
+          <div>
+            <p class="text-sm font-bold">메일제목</p>
+            <input type="text" class="w-full border-0 border-b-1 border-zinc-500 p-2" placeholder="메일제목을 입력해주세요">
+          </div>
+          <div>
+            <p class="text-sm font-bold">받는사람</p>
+            <input type="text" class="w-full border-0 border-b-1 border-zinc-500 p-2" placeholder="받는사람을 입력해주세요">
+          </div>
+          <div>
+            <p class="text-sm font-bold">보내는 사람</p>
+            <input type="text" class="w-full border-0 border-b-1 border-zinc-500 p-2" placeholder="보내는 사람을 입력해주세요"    >
+          </div>
+          <div>
+            <p class="text-sm font-bold">일시</p>
+            <input type="text" class="w-full border-0 border-b-1 border-zinc-500 p-2" placeholder="일시를 입력해주세요">
+          </div>
+          <div>
+            <p class="text-sm font-bold">첨부파일</p>
+            <input type="file" class="file-input file-input-bordered w-full max-w-xs" placeholder="첨부파일을 입력해주세요">
+          </div>
+          <div>
+            <p class="text-sm font-bold">본문</p>
+            <textarea class="w-full h-20 border-0 border-b-1 border-zinc-500 p-2" placeholder="본문을 입력해주세요"></textarea>
+          </div>
+
+        </td>
+      </tr>
+          </tbody>
+          
+         </table>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="flex justify-between mt-4">
+    <div class="flex gap-2">
+      <button class="btn btn-primary" onclick="submitAnswer()">답변등록</button>
+      <button class="btn btn-neutral" onclick="toggleGlobalEstimate()">
+        취소
+      </button>
+    </div>
+    <button class="btn btn-secondary" onclick="window.location.href='estimate-global.html'">파트너사 재견적 요청</button>
+  </div>
+
+</div>

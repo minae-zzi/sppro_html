@@ -1,8 +1,9 @@
+<!-- PC 메뉴 -->
 <div
-  class="fixed bottom-0 left-0 right-0 z-50 justify-around items-center py-4 md:bg-neutral-800 md:w-[220px] md:relative md:flex md:flex-col md:justify-between md:min-h-screen md:h-full"
+  class="hidden md:flex bg-neutral-800 w-[220px] relative flex-col justify-between min-h-screen h-full"
 >
-  <div>
-    <p class="p-4 mb-6 mt-4 cursor-pointer md:block items-center text-center">
+  <div class="w-full">
+    <p class="p-4 mb-6 mt-4 cursor-pointer items-center text-center">
       <a href="../dashboard.html" class="flex justify-center">
         <img
           src="../../../images/dark_logo.png"
@@ -12,21 +13,21 @@
       </a>
     </p>
     <aside
-      class="text-white min-h-screen flex flex-col gap-4 text-base font-medium text-sm"
+      class="text-white flex flex-col min-h-screen gap-4 text-sm font-medium"
     >
       <!-- 게시판 관리 -->
       <div>
         <h2
-          class="text-zinc-100 px-2 mb-2 bg-neutral-700 p-4 px-6 hover:bg-pblue gnb-link"
+          class="text-zinc-100 text-sm bg-neutral-700 p-4 px-6 hover:bg-pblue gnb-link text-left"
           data-path="/admin/page/panel/"
         >
           게시판 관리
         </h2>
-        <ul class="flex flex-col gap-1 text-zinc-300 gap-2 py-4">
+        <ul class="flex flex-col gap-2 py-4">
           <li
             class="px-6 hover:text-pblue rounded cursor-pointer text-zinc-300"
           >
-            견적요청
+            <a href="/admin/page/panel/estimate.html">견적요청</a>
           </li>
           <li
             class="px-6 hover:text-pblue rounded cursor-pointer text-zinc-300"
@@ -49,7 +50,7 @@
       <!-- 사이트 관리 -->
       <div>
         <h2
-          class="text-zinc-100 px-2 mb-2 bg-neutral-700 p-4 px-6 hover:bg-pblue gnb-link"
+          class="text-zinc-100 text-sm bg-neutral-700 p-4 px-6 hover:bg-pblue gnb-link text-left"
           data-path="/admin/page/site/"
         >
           사이트 관리
@@ -58,7 +59,7 @@
           <li
             class="px-6 hover:text-pblue rounded cursor-pointer text-zinc-300"
           >
-            회원관리
+            <a href="/admin/page/site/joinmem.html">회원관리</a>
           </li>
           <li
             class="px-6 hover:text-pblue rounded cursor-pointer text-zinc-300"
@@ -75,13 +76,183 @@
 
       <!-- 해외파트너사 관리 -->
       <div>
-        <h2
-          class="text-zinc-100 px-2 mb-2 bg-neutral-700 p-4 px-6 hover:bg-pblue gnb-link"
-          data-path="/admin/page/global/"
-        >
-          해외파트너사 관리
-        </h2>
+        <a href="/admin/page/global/partner.html">
+          <h2
+            class="text-zinc-100 text-sm bg-neutral-700 p-4 px-6 hover:bg-pblue gnb-link text-left"
+            data-path="/admin/page/global/"
+          >
+            해외파트너사
+          </h2>
+        </a>
+      </div>
+
+      <!-- 업체별 견적관리 -->
+      <div>
+        <a href="/admin/page/partner/estimate-partner.html">
+          <h2
+            class="text-zinc-100 text-sm bg-neutral-700 p-4 px-6 hover:bg-pblue gnb-link text-left"
+            data-path="/admin/page/partner/"
+          >
+            업체별 견적관리
+          </h2>
+        </a>
       </div>
     </aside>
   </div>
 </div>
+<!-- 모바일 메뉴 -->
+<div
+  class="fixed bottom-0 left-0 right-0 z-50 flex md:hidden bg-neutral-800 shadow-lg"
+>
+  <nav class="w-full">
+    <ul class="flex justify-around items-center py-4">
+      <li class="text-center">
+        <button
+          onclick="toggleSubmenu('panel')"
+          class="flex flex-col items-center text-white hover:text-pblue transition-colors duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+            />
+          </svg>
+          <span class="text-xs mt-1">게시판</span>
+        </button>
+        <ul
+          id="panel-submenu"
+          class="hidden absolute bottom-full left-0 w-full bg-neutral-700 rounded-t-lg shadow-lg transform transition-all duration-300 ease-in-out"
+        >
+          <li>
+            <a
+              href="/admin/page/panel/estimate.html"
+              class="block px-4 py-3 text-white hover:bg-pblue transition-colors duration-200"
+              >견적문의</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block px-4 py-3 text-white hover:bg-pblue transition-colors duration-200"
+              >KNOW-HOW</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li class="text-center">
+        <button
+          onclick="toggleSubmenu('site')"
+          class="flex flex-col items-center text-white hover:text-pblue transition-colors duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+            />
+          </svg>
+          <span class="text-xs mt-1">사이트</span>
+        </button>
+        <ul
+          id="site-submenu"
+          class="hidden absolute bottom-full left-0 w-full bg-neutral-700 rounded-t-lg shadow-lg transform transition-all duration-300 ease-in-out"
+        >
+          <li>
+            <a
+              href="/admin/page/site/joinmem.html"
+              class="block px-4 py-3 text-white hover:bg-pblue transition-colors duration-200"
+              >회원관리</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block px-4 py-3 text-white hover:bg-pblue transition-colors duration-200"
+              >이용 현황</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block px-4 py-3 text-white hover:bg-pblue transition-colors duration-200"
+              >코드관리</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li class="text-center">
+        <a
+          href="/admin/page/global/partner.html"
+          class="flex flex-col items-center text-white hover:text-pblue transition-colors duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+            />
+          </svg>
+          <span class="text-xs mt-1">파트너사</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  function toggleSubmenu(id) {
+    const submenu = document.getElementById(id + "-submenu");
+    const allSubmenus = document.querySelectorAll('[id$="-submenu"]');
+
+    allSubmenus.forEach((menu) => {
+      if (menu.id !== id + "-submenu") {
+        menu.classList.add("hidden");
+        menu.style.opacity = "0";
+        menu.style.transform = "translateY(10px)";
+      }
+    });
+
+    if (submenu.classList.contains("hidden")) {
+      submenu.classList.remove("hidden");
+      setTimeout(() => {
+        submenu.style.opacity = "1";
+        submenu.style.transform = "translateY(0)";
+      }, 50);
+    } else {
+      submenu.style.opacity = "0";
+      submenu.style.transform = "translateY(10px)";
+      setTimeout(() => {
+        submenu.classList.add("hidden");
+      }, 300);
+    }
+  }
+
+  // 초기 스타일 설정
+  document.querySelectorAll('[id$="-submenu"]').forEach((menu) => {
+    menu.style.opacity = "0";
+    menu.style.transform = "translateY(10px)";
+    menu.style.transition = "all 0.3s ease-in-out";
+  });
+</script>
