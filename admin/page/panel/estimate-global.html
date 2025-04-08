@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="admintheme">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 기본 메타 태그 -->
+    <meta name="description" content="Ms SearchPro" />
+    <meta name="keywords" content="Ms SearchPro" />
+    <meta name="author" content="Ms SearchPro" />
+
+    <!-- 파비콘 -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../../images/favicon.ico"
+    />
+
+    <title>Ms SearchPro</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <style type="text/tailwindcss">
+      @theme {
+        --font-display: "Pretendard", "sans-serif";
+        --color-bgGray: #f6f7fa;
+        --color-formGray: #eeeff4;
+        --color-pblue: #5c7dee;
+        --color-contentGray: #eeeff4;
+        --color-pgreen: #70c3a7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap" class="flex flex-row">
+      <!-- GNB include -->
+      <div id="gnb"></div>
+      <div class="h-full w-full p-4 md:p-10">
+        <!-- 타이틀 불러오기 -->
+        <h1 class="flex justify-between items-start pb-2 pt-2 md:pt-0 md:pb-6">
+          <div>
+            <span
+              id="pageTitle"
+              class="block text-2xl md:text-4xl font-bold opacity-0 transition-opacity duration-100 md:min-h-[48px]"
+            >
+              <!-- JS로 동적 텍스트 삽입 -->
+            </span>
+
+            <div class="breadcrumbs text-sm min-h-[24px]">
+              <ul class="font-normal text-zinc-500">
+                <li id="breadcrumbDepth1">&nbsp;</li>
+                <li id="breadcrumbDepth2">&nbsp;</li>
+                <li id="breadcrumbDepth3">&nbsp;</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="topbt"></div>
+        </h1>
+
+        <!-- 컨텐츠 -->
+        <div id="content">
+          <div>
+            <table class="table-secondary">
+              <colgroup>
+                <col style="width: 10%" />
+                <col style="width: auto" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>제목</th>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="제목을 입력해주세요"
+                      class="w-full bg-transparent border-none focus:outline-none"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>파트너사 선택</th>
+                  <td>
+                    <div class="flex gap-4">
+                      <label class="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          class="checkbox checkbox-sm checkbox-primary"
+                        />
+                        dataspring
+                      </label>
+                      <label class="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          class="checkbox checkbox-sm checkbox-primary"
+                        />
+                        GMOR
+                      </label>
+                      <label class="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          class="checkbox checkbox-sm checkbox-primary"
+                        />
+                        다이나타
+                      </label>
+                      <label class="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          class="checkbox checkbox-sm checkbox-primary"
+                        />
+                        마켓링크
+                      </label>
+          
+                      <label class="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          class="checkbox checkbox-sm checkbox-primary"
+                        />
+                        툴루나
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>견적문의 담당자</th>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="담당자명을 입력해주세요"
+                      class="w-full bg-transparent border-none focus:outline-none"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th>본문</th>
+                  <td>
+                    <div role="tablist" class="tabs tabs-bordered mb-2 gap-2">
+                      <a
+                        role="tab"
+                        class="tab tab-active bg-neutral text-white px-4 py-2 rounded-md transition-all duration-200 hover:bg-primary/90 flex items-center"
+                        data-tab="korean"
+                        >한국어</a
+                      >
+                      <a
+                        role="tab"
+                        class="tab bg-zinc-100 text-zinc-600 px-4 py-2 rounded-md transition-all duration-200 hover:bg-zinc-200 flex items-center"
+                        data-tab="english"
+                        >영어</a
+                      >
+                    </div>
+                    <div class="stab-content active-stab-content" id="korean">
+                      <textarea
+                        placeholder="한국어 내용을 입력해주세요"
+                        class="w-full h-40 bg-transparent border-none focus:outline-none"
+                      ></textarea>
+                    </div>
+                    <div class="stab-content" id="english">
+                      <textarea
+                        placeholder="영어 내용을 입력해주세요"
+                        class="w-full h-40 bg-transparent border-none focus:outline-none"
+                      ></textarea>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>첨부파일</th>
+                  <td>
+                    <div id="fileInputContainer"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>이메일참조</th>
+                  <td>
+                    <div id="emailInputContainer"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          
+            <div class="flex gap-2 mt-4 justify-end">
+              <button class="btn btn-primary" onclick="submitAnswer()">견적문의하기 </button>
+            </div>
+          </div>
+
+        <script>
+          $(function() {
+            // fileInput.js와 emailInput.js 순차 로드
+            $.getScript('../../js/fileInput.js', function() {
+              if(typeof renderFileInput === 'function') {
+                renderFileInput("fileInputContainer");
+              } else {
+                console.error('renderFileInput function not found');
+              }
+            });
+            
+            $.getScript('../../js/emailInput.js', function() {
+              if(typeof renderEmailInput === 'function') {
+                renderEmailInput("emailInputContainer");
+              } else {
+                console.error('renderEmailInput function not found');
+              }
+            });
+          });
+        </script>
+          
+        </div>
+    </div>
+    <script>
+      // GNB 로드 후 필요한 스크립트들 순차 로딩
+      $("#gnb").load("../../common/gnb.html", function () {
+        // breadcrumb.js
+        const breadcrumbScript = document.createElement("script");
+        breadcrumbScript.src = "../../js/breadcrumb.js";
+        breadcrumbScript.onload = () => {
+          setBreadcrumbByPath?.(); // 타이틀 & 브레드크럼 설정
+        };
+        document.body.appendChild(breadcrumbScript);
+
+        // active-gnb.js
+        const gnbScript = document.createElement("script");
+        gnbScript.src = "../../js/active-gnb.js";
+        gnbScript.onload = () => {
+          setActiveGNB?.(); // GNB 활성화 표시
+        };
+        document.body.appendChild(gnbScript);
+      });
+
+      $("#topbt").load("../../common/topbt.html", function () {
+        $("#topbt").hide().fadeIn(50);
+      });
+    </script>
+  </body>
+</html>
