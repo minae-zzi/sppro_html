@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="admintheme">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 기본 메타 태그 -->
+    <meta name="description" content="Ms SearchPro" />
+    <meta name="keywords" content="Ms SearchPro" />
+    <meta name="author" content="Ms SearchPro" />
+
+    <!-- 파비콘 -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../../images/favicon.ico"
+    />
+
+    <title>Ms SearchPro</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <style type="text/tailwindcss">
+      @theme {
+        --font-display: "Pretendard", "sans-serif";
+        --color-bgGray: #f6f7fa;
+        --color-formGray: #eeeff4;
+        --color-pblue: #5c7dee;
+        --color-contentGray: #eeeff4;
+        --color-pgreen: #70c3a7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap" class="flex flex-row">
+      <!-- GNB include -->
+      <div id="gnb"></div>
+      <div class="h-full w-full p-4 md:p-10">
+        <!-- 타이틀 불러오기 -->
+        <h1 class="flex justify-between items-start pb-2 pt-2 md:pt-0 md:pb-6">
+          <div>
+            <span
+              id="pageTitle"
+              class="block text-2xl md:text-4xl font-bold opacity-0 transition-opacity duration-100 md:min-h-[48px]"
+            >
+              <!-- JS로 동적 텍스트 삽입 -->
+            </span>
+
+            <div class="breadcrumbs text-sm min-h-[24px]">
+              <ul class="font-normal text-zinc-500">
+                <li id="breadcrumbDepth1">&nbsp;</li>
+                <li id="breadcrumbDepth2">&nbsp;</li>
+                <li id="breadcrumbDepth3">&nbsp;</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="topbt"></div>
+        </h1>
+
+        <!-- 컨텐츠 -->
+        <div id="content">
+          <form
+            class="flex flex-col md:flex-row gap-2 items-start md:items-center rounded-md bg-formGray p-4 border border-zinc-300"
+          >
+            <label class="flex flex-col gap-2 w-full md:w-16">추가</label>
+            <select class="select select-bordered w-full md:max-w-xs">
+              <option value="1">사이트 로그구분</option>
+            </select>
+            <input
+              type="text"
+              class="input input-bordered w-full"
+              placeholder="코드명"
+            />
+            <input
+              type="text"
+              class="input input-bordered w-full"
+              placeholder="폴더/파일명"
+            />
+            <button class="btn btn-neutral w-full md:w-auto">추가</button>
+          </form>
+
+          <div class="overflow-x-auto mt-6">
+            <table
+              class="table-basic text-sm md:text-base w-full"
+              style="min-width: 860px"
+            >
+              <colgroup>
+                <col style="width: 5%" />
+                <col style="width: 5%" />
+                <col style="width: 25%" />
+                <col style="width: 45%" />
+                <col style="width: 5%" />
+                <col style="width: 15%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>순번</th>
+                  <th>코드</th>
+                  <th>코드명</th>
+                  <th>주소</th>
+                  <th>사용</th>
+                  <th>관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>001</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="대시보드"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="/page/dashboard.asp"
+                    />
+                  </td>
+                  <td class="text-center">
+                    <input
+                      type="checkbox"
+                      checked
+                      class="checkbox checkbox-sm"
+                    />
+                  </td>
+                  <td>
+                    <div class="flex gap-1 items-center w-full justify-center">
+                      <button class="btn btn-primary btn-sm text-white">
+                        수정
+                      </button>
+                      <button class="btn btn-neutral btn-sm">삭제</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>002</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="Draft견적"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="/page/estimate_form.asp"
+                    />
+                  </td>
+                  <td class="text-center">
+                    <input
+                      type="checkbox"
+                      checked
+                      class="checkbox checkbox-sm"
+                    />
+                  </td>
+                  <td>
+                    <div class="flex gap-1 items-center w-full justify-center">
+                      <button class="btn btn-primary btn-sm text-white">
+                        수정
+                      </button>
+                      <button class="btn btn-neutral btn-sm">삭제</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>003</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="세부 견적 외뢰"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="/page/estimate_data.asp"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked
+                      class="checkbox checkbox-sm"
+                    />
+                  </td>
+                  <td>
+                    <div class="flex gap-1 items-center w-full justify-center">
+                      <button class="btn btn-primary btn-sm text-white">
+                        수정
+                      </button>
+                      <button class="btn btn-neutral btn-sm">삭제</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>004</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="MS정보검색(시작)"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="/page/msinfo.asp"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked
+                      class="checkbox checkbox-sm"
+                    />
+                  </td>
+                  <td>
+                    <div class="flex gap-1 items-center w-full justify-center">
+                      <button class="btn btn-primary btn-sm text-white">
+                        수정
+                      </button>
+                      <button class="btn btn-neutral btn-sm">삭제</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>005</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="MS정보검색(기본정보1)"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="input input-bordered w-full"
+                      value="/page/msinfo.asp"
+                    />
+                  </td>
+                  <td class="text-center">
+                    <input
+                      type="checkbox"
+                      checked
+                      class="checkbox checkbox-sm"
+                    />
+                  </td>
+                  <td>
+                    <div class="flex gap-1 items-center w-full justify-center">
+                      <button class="btn btn-primary btn-sm text-white">
+                        수정
+                      </button>
+                      <button class="btn btn-neutral btn-sm">삭제</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagenation flex justify-center py-6 gap-2">
+            <button class="text-sm text-zinc-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button
+              class="text-sm text-zinc-500 cursor-pointer hover:text-pblue hover:font-bold active:text-pblue"
+            >
+              1
+            </button>
+            <button
+              class="text-sm text-zinc-500 cursor-pointer hover:text-pblue hover:font-bold active:text-pblue"
+            >
+              2
+            </button>
+            <button
+              class="text-sm text-zinc-500 cursor-pointer hover:text-pblue hover:font-bold active:text-pblue"
+            >
+              3
+            </button>
+            <button
+              class="text-sm text-zinc-500 cursor-pointer hover:text-pblue hover:font-bold active:text-pblue"
+            >
+              4
+            </button>
+            <button class="text-sm text-zinc-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // GNB 로드 후 필요한 스크립트들 순차 로딩
+      $("#gnb").load("../../common/gnb.html", function () {
+        // breadcrumb.js
+        const breadcrumbScript = document.createElement("script");
+        breadcrumbScript.src = "../../js/breadcrumb.js";
+        breadcrumbScript.onload = () => {
+          setBreadcrumbByPath?.(); // 타이틀 & 브레드크럼 설정
+        };
+        document.body.appendChild(breadcrumbScript);
+
+        // active-gnb.js
+        const gnbScript = document.createElement("script");
+        gnbScript.src = "../../js/active-gnb.js";
+        gnbScript.onload = () => {
+          setActiveGNB?.(); // GNB 활성화 표시
+        };
+        document.body.appendChild(gnbScript);
+      });
+
+      $("#topbt").load("../../common/topbt.html", function () {
+        $("#topbt").hide().fadeIn(50);
+      });
+    </script>
+  </body>
+</html>

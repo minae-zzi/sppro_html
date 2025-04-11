@@ -1,0 +1,40 @@
+<div>
+  <table class="board-basic w-full overflow-x-auto">
+    <colgroup class="hidden md:table-column-group">
+      <col style="width: 10%" />
+      <col style="width: auto" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th>제목</th>
+        <td>
+          <input
+            type="text"
+            class="input input-bordered w-full"
+            placeholder="제목을 입력하세요"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th>첨부파일</th>
+        <td>
+          <input type="file" class="file-input file-input-bordered w-full" />
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2" class="text-left">
+          <div class="min-h-[300px] border border-base-300 rounded-lg p-4">
+            <!-- 에디터 영역 -->
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="flex justify-end gap-2 mt-4">
+    <button class="btn btn-neutral" onclick="loadList()">취소</button>
+    <button class="btn btn-primary">등록</button>
+  </div>
+</div>

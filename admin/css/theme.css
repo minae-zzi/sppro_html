@@ -112,7 +112,7 @@ a {
   font-size: 14px;
   font-weight: 400;
   word-break: break-word;
-  white-space: normal;
+  white-space: nowrap;
 }
 .table-basic td {
   text-align: center;
@@ -121,6 +121,7 @@ a {
   color: #777;
   word-break: keep-all;
   white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .table-basic td.text-left {
@@ -147,4 +148,29 @@ a {
   border-bottom: 1px solid #e0e0e0;
   word-break: keep-all;
   white-space: normal;
+}
+
+.board-basic {
+  width: 100%;
+  border-top: 1px solid #cbd5e1;
+  font-size: 14px;
+  table-layout: fixed;
+}
+
+.board-basic th {
+  background: #eeeff4;
+  border-bottom: 1px solid #cdd5e1;
+  padding: 12px 0px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.board-basic td {
+  text-align: center;
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.board-basic td:nth-child(2) {
+  text-align: left;
 }

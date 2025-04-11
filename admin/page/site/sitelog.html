@@ -74,90 +74,132 @@
           >
             <label class="flex flex-col gap-2 w-full md:w-12">검색</label>
             <select class="select select-bordered w-full md:max-w-xs">
-              <option value="1">내선번호+부서</option>
+              <option value="1">사번+이메일+이름</option>
             </select>
             <input type="text" class="input input-bordered w-full" />
-            <button class="btn btn-neutral w-full md:w-auto">검색</button>
+            <button class="btn btn-neutral w-full md:w-auto">조회</button>
           </form>
 
-          <div class="flex justify-end py-6">
-            <button class="btn btn-primary text-white w-full md:w-auto">
-              등록하기
-            </button>
-          </div>
-
-          <div class="overflow-x-auto w-full">
-            <div>
-              <table
-                class="table-basic text-sm md:text-base w-full"
-                style="min-width: 860px"
-              >
-                <colgroup>
-                  <col style="width: 4%" />
-                  <col style="width: 6%" />
-                  <col style="width: 8%" />
-                  <col style="width: 12%" />
-                  <col style="width: 8%" />
-                  <col style="width: 6%" />
-                  <col style="width: 10%" />
-                  <col style="width: 6%" />
-                  <col style="width: 10%" />
-                  <col style="width: 10%" />
-                  <col style="width: 6%" />
-                  <col style="width: 4%" />
-                  <col style="width: 4%" />
-                  <col style="width: 6%" />
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>순번</th>
-                    <th>구분</th>
-                    <th>이름</th>
-                    <th>이메일</th>
-                    <th>사번</th>
-                    <th>내선</th>
-                    <th>부서</th>
-                    <th>직급</th>
-                    <th>최종접속</th>
-                    <th>비번수정일자</th>
-                    <th>초기화</th>
-                    <th>사용</th>
-                    <th>참조</th>
-                    <th>수정</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>임직원</td>
-                    <td>조혜연</td>
-                    <td>babydanji@gmail.com</td>
-                    <td>5234234</td>
-                    <td>02</td>
-                    <td>온라인패널조사부</td>
-                    <td>사원</td>
-                    <td>2025-01-25 오후03:25:20</td>
-                    <td>2025-01-25 오후03:25:20</td>
-                    <td>
-                      <button class="btn btn-info btn-sm text-white">
-                        초기화
-                      </button>
-                    </td>
-                    <td class="text-center">
-                      <input type="checkbox" class="checkbox checkbox-sm" />
-                    </td>
-                    <td class="text-center">
-                      <input type="checkbox" class="checkbox checkbox-sm" />
-                    </td>
-                    <td>
-                      <button class="btn btn-neutral btn-sm text-xs">
-                        수정
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="overflow-x-auto mt-6">
+            <table
+              class="table-basic text-sm md:text-base w-full"
+              style="min-width: 860px"
+            >
+              <colgroup>
+                <col style="width: 5%" />
+                <col style="width: 8%" />
+                <col style="width: 15%" />
+                <col style="width: 7%" />
+                <col style="width: 12%" />
+                <col style="width: 4%" />
+                <col style="width: 8%" />
+                <col style="width: 15%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>순번</th>
+                  <th>이름</th>
+                  <th>이메일</th>
+                  <th>사번</th>
+                  <th>일시</th>
+                  <th>코드</th>
+                  <th>메뉴명</th>
+                  <th>사이트주소</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>30626</td>
+                  <td>송민경</td>
+                  <td>mksong@hrc.co.kr</td>
+                  <td>2402031</td>
+                  <td>2025-04-11 오후 1:23:00</td>
+                  <td>021</td>
+                  <td>MS패널자료실</td>
+                  <td>/page/data.asp</td>
+                </tr>
+                <tr>
+                  <td>30625</td>
+                  <td>송민경</td>
+                  <td>mksong@hrc.co.kr</td>
+                  <td>2402031</td>
+                  <td>2025-04-11 오후 1:22:00</td>
+                  <td>020</td>
+                  <td>패널프로필조사</td>
+                  <td>/page/result.asp</td>
+                </tr>
+                <tr>
+                  <td>30624</td>
+                  <td>송민경</td>
+                  <td>mksong@hrc.co.kr</td>
+                  <td>2402031</td>
+                  <td>2025-04-11 오후 1:21:00</td>
+                  <td>021</td>
+                  <td>MS패널자료실</td>
+                  <td>/page/data.asp</td>
+                </tr>
+                <tr>
+                  <td>30623</td>
+                  <td>송민경</td>
+                  <td>mksong@hrc.co.kr</td>
+                  <td>2402031</td>
+                  <td>2025-04-11 오후 1:20:00</td>
+                  <td>022</td>
+                  <td>KNOW-HOW</td>
+                  <td>/page/qna.asp</td>
+                </tr>
+                <tr>
+                  <td>30622</td>
+                  <td>송민경</td>
+                  <td>mksong@hrc.co.kr</td>
+                  <td>2402031</td>
+                  <td>2025-04-11 오후 1:07:00</td>
+                  <td>020</td>
+                  <td>패널프로필조사</td>
+                  <td>/page/result.asp</td>
+                </tr>
+                <tr>
+                  <td>30621</td>
+                  <td>강연지</td>
+                  <td>yjkang@hrc.co.kr</td>
+                  <td>2402050</td>
+                  <td>2025-04-11 오후 1:05:00</td>
+                  <td>001</td>
+                  <td>대시보드</td>
+                  <td>/page/dashboard.asp</td>
+                </tr>
+                <tr>
+                  <td>30620</td>
+                  <td>송민경</td>
+                  <td>mksong@hrc.co.kr</td>
+                  <td>2402031</td>
+                  <td>2025-04-11 오후 1:00:00</td>
+                  <td>002</td>
+                  <td>Draft견적</td>
+                  <td>/page/estimate_form.asp</td>
+                </tr>
+                <tr>
+                  <td>30619</td>
+                  <td>강연지</td>
+                  <td>yjkang@hrc.co.kr</td>
+                  <td>2402050</td>
+                  <td>2025-04-11 오후 12:58:00</td>
+                  <td>001</td>
+                  <td>대시보드</td>
+                  <td>/page/dashboard.asp</td>
+                </tr>
+                <tr>
+                  <td>30618</td>
+                  <td>송민경</td>
+                  <td>mksong@hrc.co.kr</td>
+                  <td>2402031</td>
+                  <td>2025-04-11 오후 12:57:00</td>
+                  <td>004</td>
+                  <td>MS보험검색(시작)</td>
+                  <td>/page/msinfo.asp</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           <div class="pagenation flex justify-center py-6 gap-2">

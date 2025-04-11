@@ -67,7 +67,70 @@
         </h1>
 
         <!-- 컨텐츠 -->
-        <div id="content">컨텐츠 내용</div>
+        <div id="content">게시판</div>
+
+        <script>
+          $(document).ready(function () {
+            // 초기 목록
+            loadList();
+
+            // 게시글 클릭
+            $(document).on("click", ".article-item", function (e) {
+              e.preventDefault();
+              const articleId = $(this).data("id");
+              loadView(articleId);
+            });
+
+            // 목록으로 돌아가기
+            $(document).on("click", "#backToList", function (e) {
+              e.preventDefault();
+              loadList();
+            });
+          });
+
+          // 목록 페이지 로드 함수
+          function loadList() {
+            $("#content").load("../../common/board-list.html", function () {
+              history.pushState({ page: "list" }, "", "?page=list");
+            });
+          }
+
+          // 상세 페이지 로드 함수
+          function loadView(articleId) {
+            $("#content").load("../../common/board-view.html", function () {
+              // 게시글 데이터 로드
+              loadArticleData(articleId);
+
+              // 댓글 섹션 JS 로드 및 초기화
+              $.getScript("../../js/commentSection.js", function () {
+                const container = document.querySelector(".comment-section");
+                if (container) {
+                  initCommentSection(container);
+                }
+              });
+
+              history.pushState(
+                { page: "view", id: articleId },
+                "",
+                `?page=view&id=${articleId}`
+              );
+            });
+          }
+
+          // 브라우저 뒤로가기/앞으로가기 처리
+          window.onpopstate = function (event) {
+            if (event.state) {
+              if (event.state.page === "list") {
+                loadList();
+              } else if (event.state.page === "view") {
+                loadView(event.state.id);
+              }
+            }
+          };
+
+          // 게시글 데이터 로드 함수
+          function loadArticleData(articleId) {}
+        </script>
       </div>
     </div>
     <script>
