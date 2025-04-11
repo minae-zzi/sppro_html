@@ -59,6 +59,7 @@
               <ul class="font-normal text-zinc-500">
                 <li id="breadcrumbDepth1">&nbsp;</li>
                 <li id="breadcrumbDepth2">&nbsp;</li>
+                <li id="breadcrumbDepth3">&nbsp;</li>
               </ul>
             </div>
           </div>
@@ -67,7 +68,75 @@
         </h1>
 
         <!-- 컨텐츠 -->
-        <div id="content">잘못된 경로입니다.</div>
+        <div id="content">
+          <!-- 기본 정보 -->
+          <div class="bg-formGray rounded-lg p-8 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <div class="text-sm text-zinc-500">사번</div>
+                <div class="font-medium">2402050</div>
+              </div>
+              <div class="space-y-2">
+                <div class="text-sm text-zinc-500">이메일</div>
+                <div class="font-medium">yjkang@hrc.co.kr</div>
+              </div>
+              <div class="space-y-2">
+                <div class="text-sm text-zinc-500">이름(직책)</div>
+                <div class="font-medium">강연지(팀장)</div>
+              </div>
+              <div class="space-y-2">
+                <div class="text-sm text-zinc-500">전화(내선)</div>
+                <div class="font-medium">02-3014-1047(1047)</div>
+              </div>
+              <div class="space-y-2">
+                <div class="text-sm text-zinc-500">부서</div>
+                <div class="font-medium">온라인패널조사부</div>
+              </div>
+              <div class="space-y-2">
+                <div class="text-sm text-zinc-500">팀</div>
+                <div class="font-medium">온라인조사 2팀</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 비밀번호 변경 -->
+          <h3 class="text-lg font-bold mb-4">비밀번호 변경</h3>
+          <div class="bg-formGray rounded-lg p-8">
+            <div class="w-full">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
+                <div class="space-y-2">
+                  <label class="text-sm text-zinc-500 font-semibold"
+                    >신규 비밀번호</label
+                  >
+                  <input
+                    type="password"
+                    class="input input-bordered w-full"
+                    placeholder="새 비밀번호를 입력하세요"
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label class="text-sm text-zinc-500 font-semibold"
+                    >신규 비밀번호 확인</label
+                  >
+                  <input
+                    type="password"
+                    class="input input-bordered w-full"
+                    placeholder="비밀번호 확인"
+                  />
+                </div>
+              </div>
+              <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-red-500 text-center md:text-left w-full md:w-auto">* 비밀번호는 6자 이상으로 해주세요.</p>
+                <button
+                  class="btn bg-primary hover:bg-primary/80 text-white w-full md:w-auto"
+                >
+                  비밀번호 변경
+                </button>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
       </div>
     </div>
     <script>

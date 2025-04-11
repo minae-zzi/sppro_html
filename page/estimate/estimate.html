@@ -69,7 +69,14 @@
 
         <!-- 컨텐츠 -->
         <div id="content">
-          <!-- 탭 메뉴 대신 링크 -->
+          <!-- 팝업 include -->
+          <div id="popup"></div>
+          <script>
+            $(document).ready(function () {
+              $("#popup").load("estimate_pop.html");
+            });
+          </script>
+          <!-- 탭 메뉴 -->
           <div class="flex border-b border-b-zinc-200 font-normal">
             <a
               href="estimate.html"
@@ -85,7 +92,228 @@
             </a>
           </div>
 
-          <div class="mt-6">내용들어감</div>
+          <div class="mt-6">
+            <div class="text-sm text-zinc-400 mb-6">
+              아래 내용에 따라 정보를 입력해주세요. <br />Draft 견적은 일반적인
+              정량 조사에 적용되는 견적입니다. <br />
+              <p class="text-primary">
+                HUT, WEB-diary 등 특이 조사는 [세부 견적 의뢰]를 통해
+                의뢰해주세요.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 md:gap-4">
+              <!-- 견적요청 -->
+              <div class="form-section" tabindex="1">
+                <label class="font-semibold text-zinc-800">Step01</label>
+                <p class="text-primary">설문길이를 입력해주세요.</p>
+                <form
+                  class="flex gap-2 items-center font-bold text-zinc-800 text-sm"
+                >
+                  <select id="step1Select" class="select select-primary w-full">
+                    <option value="">선택해주세요</option>
+                    <option value="1">5분이하 (15문항 이하)</option>
+                    <option value="3">10분 (15~29문항)</option>
+                    <option value="5">15분 (30~44문항)</option>
+                    <option value="7">20분 (45~59문항)</option>
+                    <option value="9">25분 (60~74문항)</option>
+                    <option value="11">30분 (75~89문항)</option>
+                  </select>
+                  분
+                </form>
+              </div>
+
+              <div class="form-section opacity-50" tabindex="2">
+                <label class="font-semibold text-zinc-800">Step02</label>
+                <p class="text-primary">예상 IR</p>
+                <form
+                  class="flex gap-2 items-center font-bold text-zinc-800 text-sm"
+                >
+                  <input
+                    id="step2Input"
+                    type="text"
+                    class="input input-bordered input-primary w-full"
+                    disabled
+                  />
+                  %
+                </form>
+              </div>
+
+              <div class="form-section opacity-50" tabindex="3">
+                <label class="font-semibold text-zinc-800">Step03</label>
+                <p class="text-primary">샘플수를 입력해주세요.</p>
+                <form
+                  class="flex gap-2 items-center font-bold text-zinc-800 text-sm"
+                >
+                  <input
+                    id="step3Input"
+                    type="text"
+                    class="input input-bordered input-primary w-full"
+                    disabled
+                  />
+                  명
+                </form>
+              </div>
+            </div>
+
+            <div class="text-zinc-400 text-sm">
+              * 설문길이: 30분이상은 별도 협의 필요함
+            </div>
+
+            <div id="estimateTable" class="mt-6 w-full" style="display: none">
+              <table class="estimate-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>단가</th>
+                    <th>인원</th>
+                    <th>합계</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>사례금</td>
+                    <td id="unitPrice">800원</td>
+                    <td id="sampleCount">1명</td>
+                    <td id="sampleTotal">800원</td>
+                  </tr>
+                  <tr>
+                    <td>내근직<br />(인바운드, 오픈검증, 설문테스트 등)</td>
+                    <td>50,000원</td>
+                    <td>1명</td>
+                    <td>50,000원</td>
+                  </tr>
+                  <tr>
+                    <td>문자&전화 사용료</td>
+                    <td>50원</td>
+                    <td id="msgCount">10명</td>
+                    <td id="msgTotal">500원</td>
+                  </tr>
+                  <tr>
+                    <td>간접비</td>
+                    <td>300,000원</td>
+                    <td></td>
+                    <td>300,000원</td>
+                  </tr>
+                  <tr class="bg-zinc-100 font-bold">
+                    <td>전체합계</td>
+                    <td id="totalUnitPrice">351,300원</td>
+                    <td id="totalCount">1명</td>
+                    <td id="subTotal">351,300원</td>
+                  </tr>
+                  <tr class="bg-blue-50 font-bold">
+                    <td class="none text-black">IR 가중치 합계(최종 비용)</td>
+                    <td class="none text-red-500" id="finalUnitPrice">
+                      562,080원
+                    </td>
+                    <td class="none text-black" id="finalCount">1명</td>
+                    <td class="none text-black" id="finalTotal">562,080원</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <script>
+              $(document).ready(function () {
+                const TYPING_DELAY = 500;
+                const IR_MULTIPLIER = 1.6;
+                const BASE_PRICES = {
+                  1: 800,
+                  2: 1600,
+                  3: 2400,
+                  4: 3200,
+                  5: 4000,
+                  6: 4800,
+                };
+
+                // 견적 계산 함수
+                function calculateEstimate() {
+                  const step1Value = $("#step1Select").val();
+                  const step2Value = $("#step2Input").val();
+                  const step3Value = $("#step3Input").val();
+
+                  if (!step1Value || !step2Value || !step3Value) return;
+
+                  $("#estimateTable").fadeIn();
+
+                  const basePrice = BASE_PRICES[parseInt(step1Value)] || 800;
+                  const sampleCount = parseInt(step3Value);
+                  const sampleTotal = basePrice * sampleCount;
+                  const msgCount = sampleCount * 10;
+                  const msgTotal = msgCount * 50;
+                  const subTotal = sampleTotal + 50000 + msgTotal + 300000;
+                  const totalUnitPrice = Math.round(subTotal / sampleCount);
+                  const finalTotal = Math.round(subTotal * IR_MULTIPLIER);
+                  const finalUnitPrice = Math.round(finalTotal / sampleCount);
+
+                  // 화면 업데이트 함수
+                  function updateDisplay(id, value, unit) {
+                    $(`#${id}`).text(`${value.toLocaleString()}${unit}`);
+                  }
+
+                  // 견적 테이블 값 업데이트
+                  updateDisplay("unitPrice", basePrice, "원");
+                  updateDisplay("sampleCount", sampleCount, "명");
+                  updateDisplay("sampleTotal", sampleTotal, "원");
+                  updateDisplay("msgCount", msgCount, "명");
+                  updateDisplay("msgTotal", msgTotal, "원");
+                  updateDisplay("totalUnitPrice", totalUnitPrice, "원");
+                  updateDisplay("totalCount", sampleCount, "명");
+                  updateDisplay("subTotal", subTotal, "원");
+                  updateDisplay("finalUnitPrice", finalUnitPrice, "원");
+                  updateDisplay("finalCount", sampleCount, "명");
+                  updateDisplay("finalTotal", finalTotal, "원");
+                }
+
+                // 폼 섹션 활성화
+                function activateFormSection($input) {
+                  $input
+                    .prop("disabled", false)
+                    .closest(".form-section")
+                    .removeClass("opacity-50")
+                    .addClass("border-primary bg-zinc-50");
+                  $input.focus();
+                }
+
+                // 초기 설정
+                $("#step2Input, #step3Input").prop("disabled", true);
+                $(".form-section:not(:first-child)").addClass("opacity-50");
+
+                // 이벤트 핸들러
+                $("#step1Select, #step2Input, #step3Input").on(
+                  "change input",
+                  calculateEstimate
+                );
+
+                $("#step1Select").on("change", function () {
+                  if ($(this).val()) {
+                    activateFormSection($("#step2Input"));
+                  }
+                });
+
+                let typingTimer;
+
+                $("#step2Input").on("input", function () {
+                  clearTimeout(typingTimer);
+                  typingTimer = setTimeout(() => {
+                    if ($(this).val()) {
+                      activateFormSection($("#step3Input"));
+                    }
+                  }, TYPING_DELAY);
+                });
+
+                $("#step3Input").on("input", function () {
+                  clearTimeout(typingTimer);
+                  typingTimer = setTimeout(() => {
+                    if ($(this).val()) {
+                      $(this).closest(".form-section").addClass("bg-zinc-50");
+                      $(this).blur();
+                    }
+                  }, TYPING_DELAY);
+                });
+              });
+            </script>
+          </div>
         </div>
       </div>
     </div>

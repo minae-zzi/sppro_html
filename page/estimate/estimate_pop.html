@@ -1,0 +1,51 @@
+<!-- 오버레이 팝업 -->
+<div
+  id="overlay"
+  class="fixed inset-0 bg-black/85 flex items-center justify-center z-50"
+>
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <h2 class="text-2xl font-bold mb-4">주의사항</h2>
+    <div class="text-zinc-600 mb-6">
+      <p class="mb-2">
+        마스터샘플을 통해 온라인조사를 진행하시는 경우<br />
+        온라인패널조사부에 견적의뢰하는 페이지 입니다.<br />
+        <br />
+        <span class="text-red-500"
+          >외부유출은 절대 불가능하니 주의해주세요.</span
+        >
+      </p>
+    </div>
+    <div class="flex justify-end">
+      <button onclick="closeOverlay()" class="btn btn-primary">
+        확인했습니다
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(window).on("load", function () {
+    // 로컬스토리지에서 팝업 확인 여부 체크
+    const popupChecked = localStorage.getItem("estimatePopupChecked");
+
+    // 초기에 팝업 숨기기
+    $("#overlay").hide();
+
+    if (!popupChecked) {
+      // 0.5초 후에 페이드인 효과로 팝업 표시
+      setTimeout(function () {
+        $("body").css("overflow", "hidden");
+        $("#overlay").fadeIn(300);
+      }, 500);
+    }
+  });
+
+  // 팝업 닫기
+  function closeOverlay() {
+    $("body").css("overflow", "auto");
+    $("#overlay").fadeOut(300);
+
+    // 로컬스토리지에 팝업 확인 여부 저장
+    localStorage.setItem("estimatePopupChecked", "true");
+  }
+</script>

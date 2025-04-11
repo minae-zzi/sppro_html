@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="mytheme">
+<html lang="ko" data-theme="admintheme">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../../images/favicon.ico"
+      href="../../../images/favicon.ico"
     />
 
     <title>Ms SearchPro</title>
@@ -59,6 +59,7 @@
               <ul class="font-normal text-zinc-500">
                 <li id="breadcrumbDepth1">&nbsp;</li>
                 <li id="breadcrumbDepth2">&nbsp;</li>
+                <li id="breadcrumbDepth3">&nbsp;</li>
               </ul>
             </div>
           </div>
@@ -67,20 +68,90 @@
         </h1>
 
         <!-- 컨텐츠 -->
-        <div id="content">잘못된 경로입니다.</div>
+        <div id="content">게시판</div>
+
+        <script>
+          $(document).ready(function () {
+            // 초기 목록
+            loadList();
+
+            // 게시글 클릭
+            $(document).on("click", ".article-item", function (e) {
+              e.preventDefault();
+              const articleId = $(this).data("id");
+              loadView(articleId);
+            });
+
+            // 목록으로 돌아가기
+            $(document).on("click", "#backToList", function (e) {
+              e.preventDefault();
+              loadList();
+            });
+
+            // 등록하기 버튼 클릭
+            $(document).on("click", "#board-write-btn", function (e) {
+              e.preventDefault();
+              loadWrite();
+            });
+          });
+
+          // 목록 페이지 로드 함수
+          function loadList() {
+            $("#content").load("../../common/board-list.html", function () {
+              history.pushState({ page: "list" }, "", "?page=list");
+            });
+          }
+
+          // 상세 페이지 로드 함수
+          function loadView(articleId) {
+            $("#content").load("../../common/board-view.html", function () {
+              // 게시글 데이터 로드
+              loadArticleData(articleId);
+
+              // 댓글 섹션 JS 로드 및 초기화
+              $.getScript("../../js/commentSection.js", function () {
+                const container = document.querySelector(".comment-section");
+                if (container) {
+                  initCommentSection(container);
+                }
+              });
+
+              history.pushState(
+                { page: "view", id: articleId },
+                "",
+                `?page=view&id=${articleId}`
+              );
+            });
+          }
+
+          // 글쓰기 페이지 로드 함수
+          function loadWrite() {
+            $("#content").load("../../common/board-write.html", function () {
+              history.pushState({ page: "write" }, "", "?page=write");
+            });
+          }
+
+          // 브라우저 뒤로가기/앞으로가기 처리
+          window.onpopstate = function (event) {
+            if (event.state) {
+              if (event.state.page === "list") {
+                loadList();
+              } else if (event.state.page === "view") {
+                loadView(event.state.id);
+              } else if (event.state.page === "write") {
+                loadWrite();
+              }
+            }
+          };
+
+          // 게시글 데이터 로드 함수
+          function loadArticleData(articleId) {}
+        </script>
       </div>
     </div>
     <script>
       // GNB 로드 후 필요한 스크립트들 순차 로딩
       $("#gnb").load("../../common/gnb.html", function () {
-        // animation.js
-        const animScript = document.createElement("script");
-        animScript.src = "../../js/animation.js";
-        animScript.onload = () => {
-          initAnimations?.(); // 애니메이션 초기화
-        };
-        document.body.appendChild(animScript);
-
         // breadcrumb.js
         const breadcrumbScript = document.createElement("script");
         breadcrumbScript.src = "../../js/breadcrumb.js";

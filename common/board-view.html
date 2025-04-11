@@ -1,0 +1,61 @@
+<div>
+  <table class="board-basic w-full overflow-x-auto">
+    <colgroup class="hidden md:table-column-group">
+      <col style="width: 10%" />
+      <col style="width: auto" />
+      <col style="width: 10%" />
+      <col style="width: 20%" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="4">제목이 들어갑니다.</th>
+      </tr>
+      <tr>
+        <th>작성자</th>
+        <td>관리자</td>
+        <th>작성일</th>
+        <td>2025-01-01</td>
+      </tr>
+      <tr>
+        <th>첨부파일</th>
+        <td colspan="3"><a href="#">첨부파일.zip</a></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="4" class="text-left">
+          <div class="text-left">본문이 들어갑니다.</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="flex justify-end mt-4">
+    <button class="btn btn-neutral" onclick="loadList()">목록으로</button>
+  </div>
+
+  <!-- 댓글 섹션 -->
+  <div
+    class="comment-section flex flex-col gap-4 pt-8"
+    data-estimate-id="2025-00-0001"
+    data-template="/common/comment-item.html"
+  >
+    <div class="flex items-center text-lg font-semibold">
+      <p class="text-zinc-800">댓글</p>
+      <div class="comment-count text-pblue pl-1">(0)</div>
+    </div>
+
+    <!-- 입력 영역 -->
+    <div class="flex bg-formGray rounded-md p-3">
+      <input
+        type="text"
+        placeholder="댓글을 입력해주세요"
+        class="comment-input input input-ghost w-full input-sm focus:outline-none"
+      />
+      <button class="add-comment-btn btn btn-sm btn-primary">댓글달기</button>
+    </div>
+
+    <!-- 댓글 리스트 영역 -->
+    <div class="comment-list flex flex-col gap-4"></div>
+  </div>
+</div>

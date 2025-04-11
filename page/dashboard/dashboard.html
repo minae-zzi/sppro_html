@@ -20,6 +20,8 @@
     <title>Ms SearchPro</title>
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -162,28 +164,536 @@
             <!-- Mastersample 섹션 -->
             <div class="bg-white rounded-md p-8 col-span-4">
               <h2 class="text-xl font-bold mb-4">Mastersample</h2>
-              <div>그래프</div>
+              <div class="text-center mb-4">
+                <div class="inline-flex gap-4 text-sm">
+                  <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 bg-[#5c7dee] rounded-full"></div>
+                    <span>누적</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 bg-[#70c3a7] rounded-full"></div>
+                    <span>현재가입</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 bg-[#4b5563] rounded-full"></div>
+                    <span>액티브</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <canvas id="masterSampleChart" height="240"></canvas>
+              </div>
+              <!-- 데이터 테이블 추가 -->
+              <div class="mt-6 overflow-x-auto">
+                <table class="table-basic">
+                  <thead>
+                    <tr>
+                      <th>구분</th>
+                      <th>2023년</th>
+                      <th>2024년</th>
+                      <th>2025년</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="flex items-center gap-2 justify-center">
+                          <div class="w-2 h-2 bg-[#5c7dee] rounded-full"></div>
+                          <span>누적</span>
+                        </div>
+                      </td>
+                      <td>1,216,077</td>
+                      <td>1,273,848</td>
+                      <td>1,288,152</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="flex items-center gap-2 justify-center">
+                          <div class="w-2 h-2 bg-[#70c3a7] rounded-full"></div>
+                          <span>현재가입</span>
+                        </div>
+                      </td>
+                      <td>900,547</td>
+                      <td>958,269</td>
+                      <td>972,517</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="flex items-center gap-2 justify-center">
+                          <div class="w-2 h-2 bg-[#4b5563] rounded-full"></div>
+                          <span>액티브</span>
+                        </div>
+                      </td>
+                      <td>626,280</td>
+                      <td>611,616</td>
+                      <td>581,339</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div class="bg-white rounded-md p-8 col-span-4">
               <h2 class="text-xl font-bold mb-4">
                 Mastersample Active gender, age
               </h2>
-              <div>그래프</div>
+              <div class="mb-4">
+                <canvas id="genderAgeChart" height="240"></canvas>
+              </div>
+              <div class="mt-6 overflow-x-auto">
+                <table class="table-basic">
+                  <thead>
+                    <tr>
+                      <th>연령대</th>
+                      <th>남자</th>
+                      <th>여자</th>
+                      <th>합계</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">0-19</td>
+                      <td>21,780</td>
+                      <td>12,866</td>
+                      <td>34,646</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">20-29</td>
+                      <td>91,543</td>
+                      <td>53,168</td>
+                      <td>144,711</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">30-39</td>
+                      <td>51,621</td>
+                      <td>58,551</td>
+                      <td>110,172</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">40-49</td>
+                      <td>61,139</td>
+                      <td>63,569</td>
+                      <td>124,708</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">50-59</td>
+                      <td>66,305</td>
+                      <td>54,113</td>
+                      <td>120,418</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">60-69</td>
+                      <td>33,057</td>
+                      <td>23,164</td>
+                      <td>56,221</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">70-</td>
+                      <td>9,671</td>
+                      <td>6,954</td>
+                      <td>16,625</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             <!-- Mobile CX+ 섹션 -->
             <div class="bg-white rounded-md p-8 col-span-4">
               <h2 class="text-xl font-bold mb-4">Mobile CX+</h2>
-              <div>그래프</div>
+              <div class="text-center mb-4">
+                <div class="inline-flex gap-4 text-sm">
+                  <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 bg-[#8b5cf6] rounded-full"></div>
+                    <span>현재가입</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-[#1f2937] rounded-full"></div>
+                    <span>액티브</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <canvas id="mobileCXChart" height="240"></canvas>
+              </div>
+              <div class="mt-6 overflow-x-auto">
+                <table class="table-basic">
+                  <thead>
+                    <tr>
+                      <th>구분</th>
+                      <th>2023년</th>
+                      <th>2024년</th>
+                      <th>2025년</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="flex items-center gap-2 justify-center">
+                          <div class="w-2 h-2 bg-[#8b5cf6] rounded-full"></div>
+                          <span>현재가입</span>
+                        </div>
+                      </td>
+                      <td>257,966</td>
+                      <td>257,792</td>
+                      <td>257,585</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="flex items-center gap-2 justify-center">
+                          <div class="w-2 h-2 bg-[#1f2937] rounded-full"></div>
+                          <span>액티브</span>
+                        </div>
+                      </td>
+                      <td>70,254</td>
+                      <td>58,010</td>
+                      <td>54,373</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div class="bg-white rounded-md p-8 col-span-4">
               <h2 class="text-xl font-bold mb-4">
                 Mobile CX+ Active gender, age
               </h2>
-              <div>그래프</div>
+              <div class="mb-4">
+                <canvas id="mobileCXGenderAgeChart" height="240"></canvas>
+              </div>
+              <div class="mt-6 overflow-x-auto">
+                <table class="table-basic">
+                  <thead>
+                    <tr>
+                      <th>연령대</th>
+                      <th>남자</th>
+                      <th>여자</th>
+                      <th>합계</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">0-19</td>
+                      <td>11,780</td>
+                      <td>10,866</td>
+                      <td>22,646</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">20-29</td>
+                      <td>41,543</td>
+                      <td>33,168</td>
+                      <td>74,711</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">30-39</td>
+                      <td>31,621</td>
+                      <td>38,551</td>
+                      <td>70,172</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">40-49</td>
+                      <td>41,139</td>
+                      <td>43,569</td>
+                      <td>84,708</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">50-59</td>
+                      <td>36,305</td>
+                      <td>34,113</td>
+                      <td>70,418</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">60-69</td>
+                      <td>23,057</td>
+                      <td>13,164</td>
+                      <td>36,221</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">70-</td>
+                      <td>5,671</td>
+                      <td>4,954</td>
+                      <td>10,625</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- 차트데이터 스크립트 -->
+        <script>
+          // 차트 데이터
+          const data = {
+            labels: ["2023년", "2024년", "2025년"],
+            datasets: [
+              {
+                label: "누적",
+                data: [1216077, 1273848, 1288152],
+                backgroundColor: "#5c7dee",
+                borderRadius: 4,
+              },
+              {
+                label: "현재가입",
+                data: [900547, 958269, 972517],
+                backgroundColor: "#70c3a7",
+                borderRadius: 4,
+              },
+              {
+                label: "액티브",
+                data: [626280, 611616, 581339],
+                backgroundColor: "#4b5563",
+                borderRadius: 4,
+              },
+            ],
+          };
+
+          // 차트 설정
+          const config = {
+            type: "bar",
+            data: data,
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    callback: function (value) {
+                      return (value / 10000).toFixed(1) + "M";
+                    },
+                  },
+                },
+              },
+              plugins: {
+                legend: {
+                  display: false,
+                },
+              },
+              barPercentage: 0.7,
+              categoryPercentage: 0.7,
+            },
+          };
+
+          // 차트 생성
+          const ctx = document.getElementById("masterSampleChart");
+          new Chart(ctx, config);
+
+          // 성별/연령대 차트 데이터
+          const genderAgeData = {
+            labels: [
+              "70-",
+              "60-69",
+              "50-59",
+              "40-49",
+              "30-39",
+              "20-29",
+              "0-19",
+            ],
+            datasets: [
+              {
+                label: "남자",
+                data: [-9671, -33057, -66305, -61139, -51621, -91543, -21780],
+                backgroundColor: "#5c7dee",
+                borderRadius: 4,
+              },
+              {
+                label: "여자",
+                data: [6954, 23164, 54113, 63569, 58551, 53168, 12866],
+                backgroundColor: "#ff8787",
+                borderRadius: 4,
+              },
+            ],
+          };
+
+          // 성별/연령대 차트 설정
+          const genderAgeConfig = {
+            type: "bar",
+            data: genderAgeData,
+            options: {
+              indexAxis: "y",
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: {
+                  stacked: false,
+                  ticks: {
+                    callback: function (value) {
+                      return Math.abs(value / 1000).toFixed(0) + "K";
+                    },
+                  },
+                },
+                y: {
+                  stacked: true,
+                  beginAtZero: true,
+                },
+              },
+              plugins: {
+                legend: {
+                  display: true,
+                  position: "top",
+                },
+                tooltip: {
+                  callbacks: {
+                    label: function (context) {
+                      let value = Math.abs(context.raw);
+                      return (
+                        context.dataset.label + ": " + value.toLocaleString()
+                      );
+                    },
+                  },
+                },
+              },
+              barPercentage: 0.8,
+              categoryPercentage: 0.9,
+            },
+          };
+
+          // 성별/연령대 차트 생성
+          const genderAgeCtx = document.getElementById("genderAgeChart");
+          new Chart(genderAgeCtx, genderAgeConfig);
+
+          // Mobile CX+ 차트 데이터
+          const mobileCXData = {
+            labels: ["2023년", "2024년", "2025년"],
+            datasets: [
+              {
+                label: "현재가입",
+                data: [257966, 257792, 257585],
+                backgroundColor: "#8b5cf6",
+                borderRadius: 4,
+                order: 2,
+              },
+              {
+                label: "액티브",
+                data: [70254, 58010, 54373],
+                type: "line",
+                borderColor: "#1f2937",
+                borderWidth: 2,
+                pointBackgroundColor: "#1f2937",
+                pointRadius: 4,
+                fill: false,
+                order: 1,
+              },
+            ],
+          };
+
+          // Mobile CX+ 차트 설정
+          const mobileCXConfig = {
+            type: "bar",
+            data: mobileCXData,
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    callback: function (value) {
+                      return (value / 1000).toFixed(0) + "K";
+                    },
+                  },
+                },
+              },
+              plugins: {
+                legend: {
+                  display: false,
+                },
+                tooltip: {
+                  callbacks: {
+                    label: function (context) {
+                      return (
+                        context.dataset.label +
+                        ": " +
+                        context.raw.toLocaleString()
+                      );
+                    },
+                  },
+                },
+              },
+              barPercentage: 0.5,
+              categoryPercentage: 0.8,
+            },
+          };
+
+          // Mobile CX+ 차트 생성
+          const mobileCXCtx = document.getElementById("mobileCXChart");
+          new Chart(mobileCXCtx, mobileCXConfig);
+
+          // Mobile CX+ Active 성별/연령대 차트 데이터
+          const mobileCXGenderAgeData = {
+            labels: [
+              "70-",
+              "60-69",
+              "50-59",
+              "40-49",
+              "30-39",
+              "20-29",
+              "0-19",
+            ],
+            datasets: [
+              {
+                label: "남자",
+                data: [-5671, -23057, -36305, -41139, -31621, -41543, -11780],
+                backgroundColor: "#5c7dee",
+                borderRadius: 4,
+              },
+              {
+                label: "여자",
+                data: [4954, 13164, 34113, 43569, 38551, 33168, 10866],
+                backgroundColor: "#ff8787",
+                borderRadius: 4,
+              },
+            ],
+          };
+
+          // Mobile CX+ Active 성별/연령대 차트 설정
+          const mobileCXGenderAgeConfig = {
+            type: "bar",
+            data: mobileCXGenderAgeData,
+            options: {
+              indexAxis: "y",
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: {
+                  stacked: false,
+                  ticks: {
+                    callback: function (value) {
+                      return Math.abs(value / 1000).toFixed(0) + "K";
+                    },
+                  },
+                },
+                y: {
+                  stacked: true,
+                  beginAtZero: true,
+                },
+              },
+              plugins: {
+                legend: {
+                  display: true,
+                  position: "top",
+                },
+                tooltip: {
+                  callbacks: {
+                    label: function (context) {
+                      let value = Math.abs(context.raw);
+                      return (
+                        context.dataset.label + ": " + value.toLocaleString()
+                      );
+                    },
+                  },
+                },
+              },
+              barPercentage: 0.8,
+              categoryPercentage: 0.9,
+            },
+          };
+
+          // Mobile CX+ Active 성별/연령대 차트 생성
+          const mobileCXGenderAgeCtx = document.getElementById(
+            "mobileCXGenderAgeChart"
+          );
+          new Chart(mobileCXGenderAgeCtx, mobileCXGenderAgeConfig);
+        </script>
       </div>
     </div>
     <script>

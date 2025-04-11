@@ -70,30 +70,33 @@
         <!-- 컨텐츠 -->
         <div id="content">
           <form
-            class="flex flex-row gap-2 items-center rounded-md bg-formGray p-4 border border-zinc-300"
+            class="flex flex-col md:flex-row gap-2 items-start md:items-center rounded-md bg-formGray p-4 border border-zinc-300"
           >
-            <label class="flex flex-col gap-2 w-12">검색</label>
-            <select class="select select-bordered w-full max-w-xs">
+            <label class="flex flex-col gap-2 w-full md:w-12">검색</label>
+            <select class="select select-bordered w-full md:max-w-xs">
               <option value="1">답변상태</option>
               <option value="2">답변대기</option>
               <option value="3">답변완료</option>
             </select>
-            <select class="select select-bordered w-full max-w-xs">
+            <select class="select select-bordered w-full md:max-w-xs">
               <option value="1">제목+내용</option>
               <option value="2">작성자</option>
             </select>
-            <select class="select select-bordered w-full max-w-xs">
+            <select class="select select-bordered w-full md:max-w-xs">
               <option value="1">국가</option>
               <option value="2">한국</option>
               <option value="3">한국/해외</option>
               <option value="4">해외</option>
             </select>
-            <input type="text" class="input input-bordered w-full max-w-full" />
-            <button class="btn btn-neutral">조회</button>
+            <input type="text" class="input input-bordered w-full" />
+            <button class="btn btn-neutral w-full md:w-auto">조회</button>
           </form>
 
           <div class="overflow-x-auto mt-6">
-            <table class="table-basic">
+            <table
+              class="table-basic text-sm md:text-base w-full"
+              style="min-width: 860px"
+            >
               <colgroup>
                 <col style="width: 2%" />
                 <col style="width: 5%" />
@@ -120,15 +123,18 @@
                 <tr>
                   <td>1</td>
                   <td>한국</td>
-                  <td class="flex gap-2 justify-start items-center">
-                    <span class="btn btn-secondary btn-sm text-xs"
-                      >답변대기</span
-                    >
-                    <a
-                      href="estimate-detail.html"
-                      class="hover:text-neutral-800"
-                      >Smart-Panel 패널 조사 문의</a
-                    >
+                  <td>
+                    <div class="flex gap-2 items-center min-h-[24px]">
+                      <span
+                        class="btn btn-secondary btn-sm text-xs whitespace-nowrap"
+                        >답변대기</span
+                      >
+                      <a
+                        href="estimate-detail.html"
+                        class="hover:text-neutral-800"
+                        >Smart-Panel 패널 조사 문의</a
+                      >
+                    </div>
                   </td>
                   <td>김희연</td>
                   <td>2025-01-25 오후03:25:20</td>
@@ -139,9 +145,14 @@
                 <tr>
                   <td>2</td>
                   <td>한국/해외</td>
-                  <td class="flex gap-2 justify-start items-center">
-                    <span class="btn btn-primary btn-sm text-xs">답변완료</span>
-                    [임시번호] Smart-Panel 패널 조사 문의
+                  <td>
+                    <div class="flex gap-2 items-center min-h-[24px]">
+                      <span
+                        class="btn btn-primary btn-sm text-xs whitespace-nowrap"
+                        >답변완료</span
+                      >
+                      <span>[임시번호] Smart-Panel 패널 조사 문의</span>
+                    </div>
                   </td>
                   <td>김희연</td>
                   <td>2025-01-25 오후03:25:20</td>
@@ -152,9 +163,14 @@
                 <tr>
                   <td>3</td>
                   <td>한국</td>
-                  <td class="flex gap-2 justify-start items-center">
-                    <span class="btn btn-error btn-sm text-xs">답변대기</span>
-                    [임시번호] Smart-Panel 패널 조사 문의
+                  <td>
+                    <div class="flex gap-2 items-center min-h-[24px]">
+                      <span
+                        class="btn btn-error btn-sm text-xs whitespace-nowrap"
+                        >답변대기</span
+                      >
+                      <span>[임시번호] Smart-Panel 패널 조사 문의</span>
+                    </div>
                   </td>
                   <td>김희연</td>
                   <td>2025-01-25 오후03:25:20</td>

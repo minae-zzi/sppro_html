@@ -1,0 +1,79 @@
+<div
+  class="flex flex-wrap md:flex md:flex-nowrap border-b border-b-zinc-200 font-normal"
+>
+  <a
+    href="mspanel.html"
+    class="relative text-zinc-600 bottom-[-1px] p-4 md:px-6 hover:text-pblue border-b border-transparent hover:border-pblue"
+  >
+    B2C 패널
+  </a>
+  <a
+    href="mspanel-b2b.html"
+    class="relative text-zinc-600 bottom-[-1px] p-4 md:px-6 hover:text-pblue border-b border-transparent hover:border-pblue"
+  >
+    B2B 패널
+  </a>
+  <a
+    href="mspanel-expert.html"
+    class="relative text-zinc-600 bottom-[-1px] p-4 md:px-6 hover:text-pblue border-b border-transparent hover:border-pblue"
+  >
+    전문가패널
+  </a>
+  <a
+    href="javascript:void(0)"
+    onclick="document.getElementById('dashboard-modal').showModal()"
+    class="relative text-zinc-600 bottom-[-1px] p-4 md:px-6 hover:text-pblue border-b border-transparent hover:border-pblue"
+  >
+    유병인 패널
+  </a>
+  <a
+    href="mspanel-msinfo.html"
+    class="relative text-zinc-600 bottom-[-1px] p-4 md:px-6 hover:text-pblue border-b border-transparent hover:border-pblue"
+  >
+    MS보유 세부정보
+  </a>
+</div>
+
+<!-- 대시보드 모달 -->
+<dialog id="dashboard-modal" class="modal">
+  <div
+    class="modal-box w-[95%] max-w-[1920px] h-[90vh] p-0 bg-white overflow-hidden"
+  >
+    <div
+      class="sticky top-0 z-10 flex justify-between items-center px-6 py-4 bg-white border-b"
+    >
+      <h3 class="text-lg font-bold">유병인 패널</h3>
+      <form method="dialog">
+        <button class="btn btn-sm btn-ghost">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+    <div class="relative w-full h-[calc(90vh-60px)]">
+      <iframe
+        src="https://result.hrc-ms.com/report/Page/dashboard"
+        class="absolute inset-0 w-full h-full border-0"
+        title="대시보드"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>닫기</button>
+  </form>
+</dialog>

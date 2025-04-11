@@ -18,6 +18,12 @@ function setBreadcrumbByPath() {
   else if (path.includes("estimate-prevlist.html")) depth2 = "이전견적목록";
   else if (path.includes("mypage.html")) depth2 = "내견적보기";
   else if (path.includes("estimate-detail.html")) depth2 = "내견적보기";
+  else if (path.includes("mspanel.html")) depth2 = "B2C 패널";
+  else if (path.includes("mspanel-b2b.html")) depth2 = "B2B 패널";
+  else if (path.includes("mspanel-expert.html")) depth2 = "전문가패널";
+  else if (path.includes("mspanel-patient.html")) depth2 = "유병인 패널";
+  else if (path.includes("mspanel-msinfo.html")) depth2 = "MS보유 세부정보";
+  else if (path.includes("mymodify.html")) depth2 = "내정보수정";
 
   const pageTitle = document.getElementById("pageTitle");
   const d1 = document.getElementById("breadcrumbDepth1");
