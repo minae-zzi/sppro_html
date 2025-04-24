@@ -4,15 +4,18 @@ function setActiveGNB() {
 
   const links = document.querySelectorAll(".gnb-link");
 
-  links.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href.includes(`/${currentFolder}/`)) {
-      link.classList.remove("bg-white");
-      link.classList.add("bg-neutral-800", "text-white");
+  links.forEach((li) => {
+    const a = li.querySelector("a");
+    if (a) {
+      const href = a.getAttribute("href");
+      if (href && href.includes(`/${currentFolder}/`)) {
+        li.classList.remove("gnb-link");
+        li.classList.add("gnb-active");
 
-      const img = link.querySelector("img");
-      if (img) {
-        img.classList.add("brightness-0", "invert");
+        const img = a.querySelector("img");
+        if (img) {
+          img.classList.add("brightness-0", "invert");
+        }
       }
     }
   });

@@ -222,7 +222,7 @@
     let emails = [];
     let inputValue = "";
     const suggestions = [
-      "searchpro@email.com",
+      "searchpro@email.com", 
       "searchpro2@email.com",
       "other@email.com",
       "dataspring@email.com",
@@ -230,6 +230,16 @@
       "dynata@email.com",
       "marketlink@email.com",
     ];
+
+    // 외부 클릭 이벤트 감지
+    document.addEventListener('click', (e) => {
+      const suggestionBox = container.querySelector("#suggestionBox");
+      const dropdownToggle = container.querySelector("#toggleDropdown");
+      
+      if (!suggestionBox.contains(e.target) && !dropdownToggle.contains(e.target)) {
+        suggestionBox.classList.add("hidden");
+      }
+    });
 
     const render = () => {
       container.innerHTML = `
