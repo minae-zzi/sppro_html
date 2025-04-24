@@ -202,3 +202,38 @@ a {
 .board-basic td:nth-child(2) {
   text-align: left;
 }
+
+:root {
+  --gnb-bg: #ffffff;
+  --gnb-hover-bg: #222;
+  --gnb-hover-color: #fff;
+  --gnb-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  --gnb-transition: all 0.3s ease;
+}
+
+/* GNB 스타일 */
+.gnb-link,
+.gnb-active {
+  background-color: var(--gnb-bg);
+  transition: var(--gnb-transition);
+  border-radius: 0.5rem;
+}
+
+.gnb-link:hover,
+.gnb-active {
+  background-color: var(--gnb-hover-bg);
+  color: var(--gnb-hover-color);
+}
+
+.gnb-link:hover img,
+.gnb-active img {
+  filter: brightness(0) invert(1);
+}
+
+@media screen and (max-width: 767px) {
+  .gnb-link,
+  .gnb-active {
+    border-radius: 100%;
+    box-shadow: var(--gnb-shadow);
+  }
+}
