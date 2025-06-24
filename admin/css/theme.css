@@ -981,42 +981,49 @@ a {
   border: 1px solid #d1d5db;
 }
 
-/* Checkbox 스타일 */
+/* Checkbox 스타일 - pblue 컬러, 둥글고 컬러풀하게 (작게) */
 .checkbox {
   width: 1.5rem;
   height: 1.5rem;
-  border: 1.5px solid #47506a;
-  border-radius: 50%;
-  background-color: #fff;
+  border-radius: 0.5rem;
+  border: none;
+  background: var(--color-pblue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  position: relative;
   appearance: none;
   -webkit-appearance: none;
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  transition: border-color 0.2s, background 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(60, 60, 100, 0.08);
 }
-
 .checkbox:checked {
-  border-color: #47506a;
-  background-color: #fff;
+  background: var(--color-pblue);
 }
-
 .checkbox:checked::after {
   content: "";
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 0.3rem;
+  background: none;
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 0.8rem;
-  height: 0.8rem;
-  background: #47506a;
-  border-radius: 50%;
   transform: translate(-50%, -50%);
+  /* 체크 아이콘 (SVG) */
+  background-image: url('data:image/svg+xml;utf8,<svg width="14" height="14" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 9.5L8 12.5L13 7.5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.85rem 0.85rem;
 }
-
+.checkbox:not(:checked) {
+  background: #fff;
+}
 .checkbox:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #47506a33;
+  outline: 2px solid var(--color-pblue);
+  outline-offset: 2px;
 }
 
 /* Radio 스타일 */
@@ -1700,39 +1707,6 @@ li {
   }
 }
 
-/* DaisyUI 기본 input/textarea/checkbox 스타일 강제 적용 */
-input[type="text"],
-input[type="file"],
-textarea {
-  @apply input input-bordered;
-  font-family: var(--font-display), "Montserrat", -apple-system,
-    BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-}
-input[type="text"].border-0,
-textarea.border-0 {
-  border: none;
-  border-radius: 0.375rem;
-}
-input[type="text"].border-b-1,
-textarea.border-b-1 {
-  border: none;
-  border-bottom: 1px solid #71717a;
-  border-radius: 0;
-}
-input[type="text"].border-zinc-500,
-textarea.border-zinc-500 {
-  border-bottom: 1px solid #71717a;
-}
-input[type="text"]:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--color-pblue);
-  box-shadow: 0 0 0 2px #5c7dee22;
-}
-.checkbox {
-  @apply checkbox checkbox-primary;
-}
-
 textarea {
   border: 1px solid #d1d5db;
   border-radius: 0.375rem;
@@ -1936,4 +1910,15 @@ input[type="text"]:focus {
 }
 #toggleDropdown:hover {
   background: #4c6bdd;
+}
+
+/* input-none: 배경 투명, 보더 없음, 그림자 없음 */
+.input-none {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: inherit;
+  font-family: inherit;
+  padding: 0 !important;
 }
