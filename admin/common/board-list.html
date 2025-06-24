@@ -1,79 +1,66 @@
-<div class="w-full">
+<div class="board-list-container">
   <!-- 게시판 헤더 - PC에서만 표시 -->
-  <button
-    id="board-write-btn"
-    class="btn btn-secondary btn-sm md:btn-md w-full md:w-auto mb-4"
-  >
+  <button id="board-write-btn" class="btn btn-secondary text-white mb-4">
     등록하기
   </button>
 
-  <div
-    class="hidden md:grid grid-cols-12 border-y border-zinc-200 py-3 text-center bg-[#eeeff4] text-sm"
-  >
-    <div class="col-span-1">번호</div>
-    <div class="col-span-6">제목</div>
-    <div class="col-span-2">작성자</div>
-    <div class="col-span-2">작성일</div>
-    <div class="col-span-1">조회수</div>
+  <div class="board-header">
+    <div class="board-header-col-1">번호</div>
+    <div class="board-header-col-6">제목</div>
+    <div class="board-header-col-2">작성자</div>
+    <div class="board-header-col-2">작성일</div>
+    <div class="board-header-col-1">조회수</div>
   </div>
 
   <!-- 게시글 리스트 -->
-  <div
-    class="flex flex-col divide-y divide-zinc-200 text-sm border-t border-zinc-200 md:border-t-0"
-  >
-    <div class="grid grid-cols-1 md:grid-cols-12 py-4 hover:bg-gray-50">
-      <div class="hidden md:block md:col-span-1 text-center">1</div>
-      <div class="md:col-span-6">
-        <a href="#" class="article-item block" data-id="1">
-          <h3>패널프로파일조사 웹 리포트 소개</h3>
+  <div class="board-list">
+    <div class="board-list-item">
+      <div class="board-item-number">1</div>
+      <div class="board-item-title">
+        <a href="#" class="article-item" data-id="1">
+          <span>패널프로파일조사 웹 리포트 소개</span>
         </a>
       </div>
-      <div class="text-gray-500 mt-2 md:mt-0 md:col-span-2 md:text-center">
-        관리자
-      </div>
-      <div class="text-gray-500 md:col-span-2 md:text-center">2025-04-09</div>
-      <div class="text-gray-400 md:text-gray-500 md:col-span-1 md:text-center">
-        <span class="md:hidden">조회수: </span>10
+      <div class="board-item-author">관리자</div>
+      <div class="board-item-date">2025-04-09</div>
+      <div class="board-item-views">
+        <span class="board-item-views-mobile">조회수: </span>10
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-12 py-4 hover:bg-gray-50">
-      <div class="hidden md:block md:col-span-1 text-center">2</div>
-      <div class="md:col-span-6">
+    <div class="board-list-item">
+      <div class="board-item-number">2</div>
+      <div class="board-item-title">
         <a href="#" class="article-item block" data-id="2">
-          <h3>패널프로파일조사 웹 리포트 소개</h3>
+          <span>패널프로파일조사 웹 리포트 소개</span>
         </a>
       </div>
-      <div class="text-gray-500 mt-2 md:mt-0 md:col-span-2 md:text-center">
-        관리자
-      </div>
-      <div class="text-gray-500 md:col-span-2 md:text-center">2025-04-09</div>
-      <div class="text-gray-400 md:text-gray-500 md:col-span-1 md:text-center">
-        <span class="md:hidden">조회수: </span>10
+      <div class="board-item-author">관리자</div>
+      <div class="board-item-date">2025-04-09</div>
+      <div class="board-item-views">
+        <span class="board-item-views-mobile">조회수: </span>10
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-12 py-4 hover:bg-gray-50">
-      <div class="hidden md:block md:col-span-1 text-center">3</div>
-      <div class="md:col-span-6">
+    <div class="board-list-item">
+      <div class="board-item-number">3</div>
+      <div class="board-item-title">
         <a href="#" class="article-item block" data-id="3">
-          <h3>패널프로파일조사 웹 리포트 소개</h3>
+          <span>패널프로파일조사 웹 리포트 소개</span>
         </a>
       </div>
-      <div class="text-gray-500 mt-2 md:mt-0 md:col-span-2 md:text-center">
-        관리자
-      </div>
-      <div class="text-gray-500 md:col-span-2 md:text-center">2025-04-09</div>
-      <div class="text-gray-400 md:text-gray-500 md:col-span-1 md:text-center">
-        <span class="md:hidden">조회수: </span>10
+      <div class="board-item-author">관리자</div>
+      <div class="board-item-date">2025-04-09</div>
+      <div class="board-item-views">
+        <span class="board-item-views-mobile">조회수: </span>10
       </div>
     </div>
   </div>
 </div>
 
 <!-- 페이지네이션 -->
-<div class="pagenation flex justify-center py-6 gap-2">
-  <button class="text-sm text-zinc-400">
+<div class="pagenation">
+  <button class="pagenation-btn">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -88,27 +75,11 @@
       <path d="M15 18l-6-6 6-6" />
     </svg>
   </button>
-  <button
-    class="text-sm text-zinc-500 cursor-pointer hover:text-pblue hover:font-bold active:text-pblue"
-  >
-    1
-  </button>
-  <button
-    class="text-sm text-zinc-500 cursor-pointer hover:text-pblue hover:font-bold active:text-pblue"
-  >
-    2
-  </button>
-  <button
-    class="text-sm text-zinc-500 cursor-pointer hover:text-pblue hover:font-bold active:text-pblue"
-  >
-    3
-  </button>
-  <button
-    class="text-sm text-zinc-500 cursor-pointer hover:text-pblue hover:font-bold active:text-pblue"
-  >
-    4
-  </button>
-  <button class="text-sm text-zinc-400">
+  <button class="pagenation-btn-number">1</button>
+  <button class="pagenation-btn-number">2</button>
+  <button class="pagenation-btn-number">3</button>
+  <button class="pagenation-btn-number">4</button>
+  <button class="pagenation-btn">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -126,18 +97,16 @@
 </div>
 
 <!-- 검색 영역 -->
-<div class="flex flex-col md:flex-row bg-formGray p-4 rounded-md gap-2">
-  <select class="select select-sm md:select-md w-full md:w-30">
+<div class="search-container">
+  <select class="select select-sm md:select-md search-select">
     <option value="10">제목+본문</option>
     <option value="20">제목</option>
     <option value="30">본문</option>
   </select>
   <input
     type="text"
-    class="input input-bordered input-sm md:input-md w-full"
+    class="input input-bordered input-sm md:input-md search-input"
     placeholder="검색어를 입력해주세요"
   />
-  <button class="btn btn-primary btn-sm md:btn-md w-full md:w-auto">
-    검색
-  </button>
+  <button class="btn btn-primary btn-sm md:btn-md search-btn">검색</button>
 </div>

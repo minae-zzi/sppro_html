@@ -5,10 +5,10 @@ function setBreadcrumbByPath() {
   let depth2 = ""; // 2차 메뉴
 
   // 1차 메뉴 설정
-  if (path.includes("/admin/page/site")) depth1 = "사이트 관리";
-  else if (path.includes("/admin/page/panel")) depth1 = "게시판 관리";
-  else if (path.includes("/admin/page/global")) depth1 = "해외파트너사 관리";
-  else if (path.includes("/admin/page/partner")) depth1 = "업체별 견적관리";
+  if (path.includes("/page/site")) depth1 = "사이트 관리";
+  else if (path.includes("/page/panel")) depth1 = "게시판 관리";
+  else if (path.includes("/page/global")) depth1 = "해외파트너사 관리";
+  else if (path.includes("/page/partner")) depth1 = "업체별 견적관리";
 
   // 2차 메뉴 설정
   if (path.includes("estimate.html")) depth2 = "견적요청";

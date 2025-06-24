@@ -10,37 +10,17 @@
     <meta name="author" content="Ms SearchPro" />
 
     <!-- 파비콘 -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../images/favicon.ico"
-    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
 
     <title>Ms SearchPro</title>
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- Axios CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- Tailwind CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@5"
-      rel="stylesheet"
-      type="text/css"
-    />
-
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <style type="text/tailwindcss">
-      @theme {
-        --font-display: "Pretendard", "sans-serif";
-        --color-bgGray: #f6f7fa;
-        --color-formGray: #eeeff4;
-        --color-pblue: #6177ba;
-        --color-contentGray: #eeeff4;
-        --color-pgreen: #70c3a7;
-      }
-    </style>
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.css?v=1.0.1" />
   </head>
 
   <body class="bg-neutral-900">
@@ -50,7 +30,7 @@
       >
         <h1 class="mb-10">
           <img
-            src="../images/dark_logo.png"
+            src="images/dark_logo.png"
             alt="MS SearchPro Logo"
             class="w-32"
           />
@@ -59,7 +39,7 @@
         <form
           id="loginForm"
           class="w-full max-w-sm"
-          action="../admin/page/site/joinmem.html"
+          action="page/site/joinmem.html"
         >
           <div class="flex flex-col gap-2 w-full">
             <input

@@ -16,7 +16,7 @@ function renderEmailInput(containerId) {
     $container.html(`
       <div class="flex flex-col gap-2 relative">
         <div class="relative flex gap-2 items-center">
-          <button type="button" class="flex-shrink-0 text-xs bg-zinc-900 text-white rounded-md py-1 px-2 h-[30px]" id="toggleDropdown">참조 추가</button>
+          <button type="button" class="flex-shrink-0 text-xs bg-zinc-900 text-white rounded-md py-1 px-2 h-btn-xs min-w-[70px] text-[0.85rem]" id="toggleDropdown">참조추가</button>
           <div class="w-full">
             <input type="text" id="emailInput" placeholder="이메일을 입력하세요" class="w-full p-2 border-none rounded-md outline-none bg-transparent border ${
               $container.data("error") ? "border-red-500" : ""
