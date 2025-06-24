@@ -1906,3 +1906,14 @@ textarea.border-zinc-500 {
   font-family: inherit;
   padding: 0 !important;
 }
+
+.input-border-line {
+  padding: 0.5rem 0;
+  border: none;
+  border-bottom: 2px solid #71717a;
+  background: transparent;
+  border-radius: 0;
+}
+.input-border-line:focus {
+  border-bottom: 2px solid var(--color-pblue);
+}
