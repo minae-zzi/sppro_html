@@ -195,8 +195,10 @@
 
   <!-- 참조(cc) -->
   <div class="form-section" tabindex="5">
-    <label class="font-semibold text-zinc-800">참조(cc)</label>
+    <label class="font-semibold text-zinc-800">참조(cc) <button type="button" id="partnerIntroBtn" class="btn btn-sm btn-primary btn-outline ml-2">파트너사 소개</button></label>
     <div id="emailInputContainer"></div>
+    <!--모달스크립트-->
+    <script src="partnerIntroModal.js"></script>
   </div>
 
   <!-- 첨부파일 -->
@@ -430,5 +432,7 @@ function updateSuggestionHighlight(filtered) {
         $("#topbt").hide().fadeIn(50);
       });
     </script>
+    
+
   </body>
 </html>
