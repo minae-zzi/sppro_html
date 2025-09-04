@@ -134,7 +134,7 @@
 
   <!-- 파트너사 선택 -->
   <div class="form-section" tabindex="3">
-    <label class="font-semibold text-zinc-800">파트너사 선택</label>
+   <p><label class="font-semibold text-zinc-800">파트너사 선택</label> <button type="button" id="partnerIntroBtn" class="btn btn-sm btn-primary btn-outline ml-2">파트너사 소개</button></p>
     <div class="flex-wrap md:flex gap-2">
       <label class="flex items-center gap-2 pr-4">
         <input
@@ -173,6 +173,10 @@
         marketlink
       </label>
     </div>
+
+        <!--모달스크립트-->
+        <script src="partnerIntroModal.js"></script>
+
   </div>
 
   <!-- 본문 -->
@@ -195,10 +199,9 @@
 
   <!-- 참조(cc) -->
   <div class="form-section" tabindex="5">
-    <label class="font-semibold text-zinc-800">참조(cc) <button type="button" id="partnerIntroBtn" class="btn btn-sm btn-primary btn-outline ml-2">파트너사 소개</button></label>
+    <label class="font-semibold text-zinc-800">참조(cc)</label>
     <div id="emailInputContainer"></div>
-    <!--모달스크립트-->
-    <script src="partnerIntroModal.js"></script>
+
   </div>
 
   <!-- 첨부파일 -->
