@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>서치프로를 소개합니다.</title>
+    <link rel="stylesheet" href="css/about.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <section id="section" class="section1">
+        <div class="container">
+          <h1><img src="images/logo.png" alt="서치프로" /></h1>
+          <h2>새로운 <b>Search-Pro</b> 소개합니다.</h2>
+          <p>
+            서치프로는 한국리서치 임직원에게 제공되는 마스터샘플 패널 정보를
+            기반으로<br />
+            견적 요청, 패널 정보 검색, 자료실 활용 등의 기능을 제공하는 업무
+            플랫폼입니다.
+          </p>
+
+          <div class="topimg">
+            <img src="images/topimg.png" alt="서치프로" />
+          </div>
+        </div>
+      </section>
+
+      <section id="section" class="section2">
+        <p class="sub-title">리뉴얼 서치프로</p>
+        <h3 class="title">주요변경사항</h3>
+
+        <div class="cont_img">
+          <img src="images/renew_img.png" alt="서치프로" />
+        </div>
+
+        <div class="process">
+          <div class="process_item_left">
+            <p class="process_title">국내견적 의뢰시 프로세스</p>
+            <div class="process_item_left_img">
+              <img src="images/process_1.png" alt="서치프로" />
+            </div>
+          </div>
+          <div class="process_item_right">
+            <p class="process_title">해외견적 의뢰시 프로세스</p>
+            <div class="process_item_right_img">
+              <img src="images/process_2.png" alt="서치프로" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section" class="section3">
+        <div>
+          <p class="sub-title">리뉴얼 서치프로</p>
+          <h3 class="title">로그인 안내</h3>
+          <p class="login_info_text">
+            이메일주소 및 기존 서치프로 비밀번호 입력<br />
+            <span class="highlight">(초기 비밀번호는 이메일주소)</span><br />
+            비밀번호 초기화는 온라인패널조사부에게 문의해주세요.
+          </p>
+
+          <button
+            class="login_btn"
+            onclick="window.open('https://result.hrc-ms.com/Search-Pro/Common/Login', '_blank')"
+          >
+            사이트 바로가기
+          </button>
+        </div>
+
+        <div class="cont_img">
+          <img src="images/login_preview.png" alt="서치프로" />
+        </div>
+      </section>
+
+      <section id="section" class="section4">
+        <p class="sub-title">리뉴얼 서치프로</p>
+        <h3 class="title">주요화면 사용가이드</h3>
+
+        <div class="guide-container">
+          <!-- 탭 메뉴 -->
+          <div class="tab-menu">
+            <button class="tab-btn active" data-tab="dashboard">
+              대시보드
+            </button>
+            <button class="tab-btn" data-tab="ms-search">MS 정보검색</button>
+            <button class="tab-btn" data-tab="estimate">견적요청</button>
+            <button class="tab-btn" data-tab="panel-profile">
+              패널프로파일조사
+            </button>
+            <button class="tab-btn" data-tab="ms-data">MS패널자료실</button>
+            <button class="tab-btn" data-tab="knowhow">KNOW-HOW</button>
+          </div>
+
+          <!-- 탭 콘텐츠 -->
+          <div class="tab-content">
+            <!-- 대시보드 탭 -->
+            <div class="tab-panel active" id="dashboard">
+              <div class="tab-content-wrapper">
+                <div class="tab-panel-text">
+                  <p>대시보드</p>
+                  <p>
+                    좌측 메뉴: 기능별 빠른 접근<br />
+                    중앙 영역: 내 정보, 최근 게시글 현황, 실시간 패널 집계
+                    현황<br />
+                    상단 바: 내 견적보기, 로그아웃 버튼
+                  </p>
+                </div>
+                <div class="tab-panel-img">
+                  <img src="images/guide_dashboard.png" alt="대시보드" />
+                </div>
+              </div>
+            </div>
+
+            <!-- MS 정보검색 탭 -->
+            <div class="tab-panel" id="ms-search">
+              <div class="tab-content-wrapper">
+                <div class="tab-panel-text">
+                  <p>MS 정보검색</p>
+                  <p>
+                    패널이 보유하고 있는 정보에 대한 조회<br />
+                    배너 위치, 조건설정 가능<br />
+                    사용은 엑셀의 피벗테이블과 동일
+                  </p>
+                </div>
+                <div class="tab-panel-img">
+                  <img src="images/guide_msinfo.png" alt="MS 정보검색" />
+                </div>
+              </div>
+            </div>
+
+            <!-- 견적요청 탭 -->
+            <div class="tab-panel" id="estimate">
+              <div>
+                <div class="tab-content-wrapper">
+                  <div class="tab-panel-text">
+                    <p>#1 Draft 견적</p>
+                    <p>
+                      설문길이, 예상IR, 샘플수를 입력하면<br />
+                      예상되는 직간접비 확인 가능
+                    </p>
+                  </div>
+                  <div class="tab-panel-img">
+                    <img src="images/guide_inquiry1.png" alt="견적요청" />
+                    <img
+                      src="images/guide_arrow.png"
+                      alt="견적요청"
+                      style="border: none; margin-top: -6px"
+                    />
+                  </div>
+                </div>
+
+                <!-- #2 견적요청 -->
+                <div class="tab-content-wrapper">
+                  <div class="tab-panel-text">
+                    <p>#2 세부견적의뢰</p>
+                    <p>
+                      1. 제목 입력 <br />
+                      2. 의뢰하고자 하는 국내 정량 조사 또는 해외 정량 조사 선택
+                      <br />
+                      3. (해외 정량 조사의 경우) 원하는 해외 파트너사 선택
+                      <br />
+                      4. 국내, 해외 구분하여 요청할 조사 내용 입력 <br />
+                      5. 해당 견적을 함께 보고싶은 수신자를 추가 가능 <br />
+                      6. 첨부 파일 업로드 가능 <br />
+                      7. [견적 의뢰하기] 클릭 <br />
+                      8. 견적답변 완료 메일 수신하면 서치프로에서 견적 답변 보기
+                    </p>
+                  </div>
+                  <div class="tab-panel-img">
+                    <img src="images/guide_inquiry2.png" alt="견적요청" />
+                    <img
+                      src="images/guide_arrow.png"
+                      alt="견적요청"
+                      style="border: none; margin-top: -6px"
+                    />
+                  </div>
+                </div>
+
+                <!-- #3 견적요청 -->
+                <div class="tab-content-wrapper">
+                  <div class="tab-panel-text">
+                    <div class="tab-panel-infobox">
+                      <div class="boxround">
+                        국내견적과 해외 파트너사별 견적을 분리하여 확인할 수
+                        있어<br />
+                        더욱 편리합니다!
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="16"
+                        viewBox="0 0 18 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M17.7071 8.70711C18.0976 8.31658 18.0976 7.68342 17.7071 7.29289L11.3431 0.928931C10.9526 0.538407 10.3195 0.538407 9.92893 0.928931C9.53841 1.31946 9.53841 1.95262 9.92893 2.34314L15.5858 8L9.92893 13.6569C9.53841 14.0474 9.53841 14.6805 9.92893 15.0711C10.3195 15.4616 10.9526 15.4616 11.3431 15.0711L17.7071 8.70711ZM0 8L8.74228e-08 9L17 9L17 8L17 7L-8.74228e-08 7L0 8Z"
+                          fill="#5C7DEE"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="tab-panel-img">
+                    <img src="images/guide_inquiry3.png" alt="견적요청" />
+                    <img
+                      src="images/guide_arrow.png"
+                      alt="견적요청"
+                      style="border: none; margin-top: -6px"
+                    />
+                  </div>
+                </div>
+
+                <!-- #4 진행상태 확인 -->
+                <div class="tab-content-wrapper">
+                  <div class="tab-panel-text">
+                    <p>#3 진행상태 확인 방법</p>
+                    <p>"내견적보기" 메뉴에서 요청 건 상태 확인 가능</p>
+
+                    <div class="status-guide">
+                      <div class="status-item">
+                        <div class="status-badge status-waiting">답변대기</div>
+                        <p class="status-desc">
+                          견적 회신 담당자가 아직 지정되지 않음
+                        </p>
+                      </div>
+
+                      <div class="status-item">
+                        <div class="status-badge status-progress">
+                          견적확인중
+                        </div>
+                        <p class="status-desc">
+                          견적 회신 담당자가 지정되었고, 담당자가 견적 확인 중인
+                          상태<br />
+                          국내·해외 견적 중 하나만 회신되도<br />
+                          상태는 [견적 확인 중]으로 유지되며,<br />
+                          실시간으로 해외 견적 회신 내용 확인 가능
+                        </p>
+                      </div>
+
+                      <div class="status-item">
+                        <div class="status-badge status-completed">
+                          답변완료
+                        </div>
+                        <p class="status-desc">모든 견적의 답변이 완료됨</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-panel-img">
+                    <img src="images/guide_inquiry4.png" alt="진행상태 확인" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 패널프로파일조사 탭 -->
+            <div class="tab-panel" id="panel-profile">
+              <div class="tab-content-wrapper">
+                <div class="tab-panel-text">
+                  <p>패널프로파일조사</p>
+                  <p>
+                    패널 프로파일 조사를 진행하고 관리할 수 있는 기능입니다.<br />
+                    조사 설계, 실행, 결과 분석까지 전체 프로세스를 지원합니다.
+                  </p>
+                </div>
+                <div class="tab-panel-img">
+                  <img src="images/guide_profile.png" alt="패널프로파일조사" />
+                </div>
+              </div>
+            </div>
+
+            <!-- MS패널자료실 탭 -->
+            <div class="tab-panel" id="ms-data">
+              <div class="tab-content-wrapper">
+                <div class="tab-panel-text">
+                  <p>MS패널자료실</p>
+                  <p>
+                    마스터샘플 패널 관련 자료를 확인하고 다운로드할 수 있는
+                    기능입니다.<br />
+                    패널 소개서, 통계 자료, 가이드 문서 등을 제공합니다.
+                  </p>
+                </div>
+                <div class="tab-panel-img">
+                  <img src="images/guide_data.png" alt="MS패널자료실" />
+                </div>
+              </div>
+            </div>
+
+            <!-- KNOW-HOW 탭 -->
+            <div class="tab-panel" id="knowhow">
+              <div class="tab-content-wrapper">
+                <div class="tab-panel-text">
+                  <p>KNOW-HOW</p>
+                  <p>
+                    서치프로 사용법과 관련 노하우를 확인할 수 있는
+                    기능입니다.<br />
+                    자주 묻는 질문, 사용 가이드, 팁과 노하우를 제공합니다.
+                  </p>
+                </div>
+                <div class="tab-panel-img">
+                  <img src="images/guide_knowhow.png" alt="KNOW-HOW" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // 탭 스크립트
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const tabPanels = document.querySelectorAll(".tab-panel");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const targetTab = this.getAttribute("data-tab");
+
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            tabPanels.forEach((panel) => panel.classList.remove("active"));
+            document.getElementById(targetTab).classList.add("active");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
