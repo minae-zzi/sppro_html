@@ -94,6 +94,7 @@ body {
 
 #section.section1 .topimg img {
   width: 100%;
+  max-width: 983px;
 }
 
 #section.section2 {
